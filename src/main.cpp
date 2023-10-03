@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
     // dup2(saved_stderr, STDERR_FILENO);
 
     // Start the player
-    AudioPlayer player(std::make_unique<UDPReceiver>(port));
+    AudioPlayer player(std::make_unique<UDPReceiver>(port, AudioPlayer::handle_receive_cb));
 
     while (true) {
         std::cout << "Press any key to connect or q to quit: ";

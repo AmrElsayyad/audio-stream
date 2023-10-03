@@ -27,7 +27,7 @@ endif()
 ExternalProject_Add(PortAudio
     URL https://github.com/PortAudio/portaudio/archive/refs/tags/v19.7.0.tar.gz
     PREFIX ${CMAKE_BINARY_DIR}/PortAudio
-    CONFIGURE_COMMAND cd ../PortAudio && sudo apt update && sudo apt install libasound2-dev && ./configure
+    CONFIGURE_COMMAND cd ../PortAudio && sudo apt update && sudo apt install libasound2-dev && ./configure --without-jack
     BUILD_COMMAND cd ../PortAudio && make
     INSTALL_COMMAND ""
 )
@@ -59,7 +59,7 @@ add_executable(audio_stream ${source_files})
 target_link_libraries(audio_stream pthread Boost::log ${PortAudio_LIBRARY_DIR}/libportaudio.a asound)
 
 # test files
-file(GLOB test_files "${PROJECT_SOURCE_DIR}/tests/*.cpp")
+file(GLOB test_files "${PROJECT_SOURCE_DIR}/test/*.cpp")
 
 # add the test executable
 add_executable(run_tests ${test_files})

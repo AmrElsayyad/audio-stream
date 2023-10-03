@@ -5,6 +5,7 @@
 #include <boost/asio.hpp>
 #include <boost/bind/bind.hpp>
 #include <boost/log/trivial.hpp>
+#include <string>
 
 #include "audio_config.hpp"
 
@@ -53,15 +54,14 @@ class UDPSender : public Sender {
 
 class Receiver {
   public:
+    Receiver(const std::string& id,
+             std::function<void(boost::array<char, BUFFER_SIZE> buffer,
+                                size_t recv_bytes)>
+                 handle_receive_cb) {}
+
     virtual inline void start() = 0;
 
     virtual inline void stop() = 0;
-
-    virtual inline const std::function<int(const void* buffer,
-                                           unsigned long frames)>&
-    get_write_stream_fn() const = 0;
-    virtual inline void set_write_stream_fn(
-        std::function<int(const void* buffer, unsigned long frames)>) = 0;
 };
 
 class UDPReceiver : public Receiver {
@@ -70,15 +70,19 @@ class UDPReceiver : public Receiver {
     UDPReceiver(const UDPReceiver&&) = delete;
     void operator=(const UDPReceiver&) = delete;
 
-    explicit UDPReceiver(int port)
-        : port_(port),
+    explicit UDPReceiver(
+        int port, std::function<void(boost::array<char, BUFFER_SIZE> buffer,
+                                     size_t recv_bytes)>
+                      handle_receive_cb)
+        : Receiver(std::to_string(port), handle_receive_cb),
+          port_(port),
+          handle_receive_cb_(handle_receive_cb),
           io_service_(io_service()),
-          socket_(ip::udp::socket(io_service_)),
-          write_stream_fn_(nullptr) {}
+          socket_(ip::udp::socket(io_service_)) {}
 
     ~UDPReceiver() {
         stop();
-        write_stream_fn_ = nullptr;
+        handle_receive_cb_ = nullptr;
     }
 
     virtual inline void start() override {
@@ -107,18 +111,6 @@ class UDPReceiver : public Receiver {
             << "UDPReceiver stopped listening on port: " << port_;
     }
 
-    virtual inline const std::function<int(const void* buffer,
-                                           unsigned long frames)>&
-    get_write_stream_fn() const override {
-        return write_stream_fn_;
-    }
-
-    virtual inline void set_write_stream_fn(
-        std::function<int(const void* buffer, unsigned long frames)> function)
-        override {
-        write_stream_fn_ = function;
-    }
-
     inline const int& get_port() const { return port_; }
 
     inline const ip::udp::endpoint& get_remote_endpoint() const {
@@ -126,42 +118,25 @@ class UDPReceiver : public Receiver {
     }
 
   private:
-    inline void handle_receive(const boost::system::error_code& error,
-                               size_t recv_bytes) {
-        std::stringstream ss;
-        sample write_buf[frames_per_buffer][num_channels] = {{sample_silence}};
-        unsigned long i, j;
-
-        for (const auto& c : recv_buf_) {
-            ss << c;
-        }
-
-        for (i = 0; i < frames_per_buffer; ++i) {
-            for (j = 0; j < num_channels; ++j) {
-                ss >> write_buf[i][j];
-            }
-        }
-
-        // Write data to the play stream
-        if (write_stream_fn_) {
-            write_stream_fn_(write_buf, frames_per_buffer);
-        }
-
+    inline void handle_receive_wrapper(const boost::system::error_code& error,
+                                       size_t recv_bytes) {
+        handle_receive_cb_(recv_buf_, recv_bytes);
         wait();
     }
 
     inline void wait() {
         socket_.async_receive_from(
             buffer(recv_buf_), remote_endpoint_,
-            boost::bind(&UDPReceiver::handle_receive, this, placeholders::error,
-                        placeholders::bytes_transferred));
+            boost::bind(&UDPReceiver::handle_receive_wrapper, this,
+                        placeholders::error, placeholders::bytes_transferred));
     }
 
     const int port_;
+    std::function<void(boost::array<char, BUFFER_SIZE> buffer,
+                       size_t recv_bytes)>
+        handle_receive_cb_;
     io_service io_service_;
     ip::udp::socket socket_;
-    std::function<int(const void* buffer, unsigned long frames)>
-        write_stream_fn_;
     boost::array<char, BUFFER_SIZE> recv_buf_;
     ip::udp::endpoint remote_endpoint_;
     std::thread thread_;
