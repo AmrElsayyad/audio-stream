@@ -1,0 +1,9 @@
+<map id="UDPSender::UDPSender" name="UDPSender::UDPSender">
+<area shape="rect" id="Node000001" title="Constructs a UDPSender object." alt="" coords="5,55,181,80"/>
+<area shape="rect" id="Node000002" href="$classUDPSender.html#aa81d88b1347c763534ff8bc91689c736" title=" " alt="" coords="229,5,433,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,52,256,31,257,36,156,57"/>
+<area shape="rect" id="Node000003" href="$classUDPSender.html#a55eb57cf9e2b697792c9e08fe1ec0d44" title=" " alt="" coords="245,55,417,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,65,231,65,231,70,182,70"/>
+<area shape="rect" id="Node000004" href="$classUDPSender.html#ae729d1f7db9dd7bd6abfe6973789736f" title=" " alt="" coords="238,104,425,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,77,257,99,256,104,155,83"/>
+</map>

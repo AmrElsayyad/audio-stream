@@ -1,35 +1,58 @@
+/**
+ * @file audio_streamer.cpp
+ * @brief Implementation of the AudioPlayer and AudioRecorder classes for audio
+ * streaming.
+ */
+
 #include "audio_streamer.hpp"
 
-PaStream *AudioPlayer::stream_{nullptr};
+using std::array;
+using std::cerr;
+using std::endl;
+using std::runtime_error;
+using std::stringstream;
+using std::unique_ptr;
 
-AudioPlayer::AudioPlayer(std::unique_ptr<Receiver>(receiver))
+PaStream* AudioPlayer::stream_{nullptr};
+
+/**
+ * @brief Constructs an AudioPlayer object.
+ * @param receiver A unique_ptr to the receiver object for audio streaming.
+ */
+AudioPlayer::AudioPlayer(unique_ptr<Receiver>(receiver))
     : receiver_(std::move(receiver)) {
-    PaError err = paNoError;
-
-    err =
+    // Open the default audio stream
+    PaError err =
         Pa_OpenDefaultStream(&stream_, 0, num_channels, sample_format,
                              sample_rate, frames_per_buffer, nullptr, nullptr);
     if (err != paNoError) {
-        throw std::runtime_error(Pa_GetErrorText(err));
+        throw runtime_error(Pa_GetErrorText(err));
     }
 
+    // Start the audio stream
     err = Pa_StartStream(stream_);
     if (err != paNoError) {
-        throw std::runtime_error(Pa_GetErrorText(err));
+        throw runtime_error(Pa_GetErrorText(err));
     }
 
+    // Start the receiver
     receiver_->start();
 
     BOOST_LOG_TRIVIAL(info) << "AudioPlayer started";
 }
 
+/**
+ * @brief Destroys the AudioPlayer object.
+ */
 AudioPlayer::~AudioPlayer() {
+    // Stop the receiver
     receiver_->stop();
 
+    // Close the audio stream
     if (stream_) {
         PaError err = Pa_CloseStream(stream_);
         if (err != paNoError) {
-            std::cerr << Pa_GetErrorText(err) << std::endl;
+            cerr << Pa_GetErrorText(err) << endl;
         }
         stream_ = nullptr;
     }
@@ -37,17 +60,23 @@ AudioPlayer::~AudioPlayer() {
     BOOST_LOG_TRIVIAL(info) << "AudioPlayer stopped";
 }
 
-void AudioPlayer::handle_receive_cb(boost::array<char, BUFFER_SIZE> buf,
+/**
+ * @brief Static callback function to handle received audio data.
+ * @param buf The buffer containing the received audio data.
+ * @param recv_bytes The number of received bytes.
+ */
+void AudioPlayer::handle_receive_cb(array<char, BUFFER_SIZE> buf,
                                     size_t recv_bytes) {
     if (!stream_) {
         return;
     }
 
-    std::stringstream ss;
+    stringstream ss;
     sample write_buf[frames_per_buffer][num_channels] = {{sample_silence}};
     unsigned long i, j;
 
-    for (const auto &c : buf) {
+    // Process the received audio data
+    for (const auto& c : buf) {
         ss << c;
     }
 
@@ -57,36 +86,42 @@ void AudioPlayer::handle_receive_cb(boost::array<char, BUFFER_SIZE> buf,
         }
     }
 
+    // Write the audio data to the stream
     Pa_WriteStream(stream_, write_buf, frames_per_buffer);
 }
 
-AudioRecorder::AudioRecorder(std::unique_ptr<Sender> sender)
-    : sender_(std::move(sender)), playing_(true) {
-    PaError err = paNoError;
-
-    err = Pa_OpenDefaultStream(&stream_, num_channels, 0, sample_format,
-                               sample_rate, frames_per_buffer, recordCallback,
-                               this);
+/**
+ * @brief Constructs an AudioRecorder object.
+ * @param sender A unique_ptr to the sender object for audio streaming.
+ */
+AudioRecorder::AudioRecorder(unique_ptr<Sender> sender)
+    : sender_(std::move(sender)) {
+    // Open the default audio stream
+    PaError err = Pa_OpenDefaultStream(&stream_, num_channels, 0, sample_format,
+                                       sample_rate, frames_per_buffer,
+                                       recordCallback, this);
     if (err != paNoError) {
-        throw std::runtime_error(Pa_GetErrorText(err));
+        throw runtime_error(Pa_GetErrorText(err));
     }
 
+    // Start the audio stream
     err = Pa_StartStream(stream_);
     if (err != paNoError) {
-        throw std::runtime_error(Pa_GetErrorText(err));
+        throw runtime_error(Pa_GetErrorText(err));
     }
 
     BOOST_LOG_TRIVIAL(info) << "AudioRecorder started";
 }
 
+/**
+ * @brief Destroys the AudioRecorder object.
+ */
 AudioRecorder::~AudioRecorder() {
-    playing_ = false;
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
+    // Close the audio stream
     if (stream_) {
         PaError err = Pa_CloseStream(stream_);
         if (err != paNoError) {
-            std::cerr << Pa_GetErrorText(err) << std::endl;
+            cerr << Pa_GetErrorText(err) << endl;
         }
         stream_ = nullptr;
     }
@@ -94,41 +129,47 @@ AudioRecorder::~AudioRecorder() {
     BOOST_LOG_TRIVIAL(info) << "AudioRecorder stopped";
 }
 
-bool AudioRecorder::is_playing() const { return playing_; }
-
-inline void AudioRecorder::send(const std::string_view &msg) const {
+/**
+ * @brief Sends a message using the sender object.
+ * @param msg The message to be sent.
+ */
+inline void AudioRecorder::send(const std::string_view& msg) const {
     sender_->send(msg);
 }
 
-/* This routine will be called by the PortAudio engine when audio is needed.
-** It may be called at interrupt level on some machines so don't do anything
-** that could mess up the system like calling malloc() or free().
-*/
-int AudioRecorder::recordCallback(const void *inputBuffer, void *outputBuffer,
+/**
+ * @brief Callback function for recording audio.
+ * @param inputBuffer The input buffer for audio data.
+ * @param outputBuffer The output buffer for audio data.
+ * @param framesPerBuffer The number of frames per buffer.
+ * @param timeInfo The time information for the callback.
+ * @param statusFlags The status flags for the callback.
+ * @param userData User data passed to the callback.
+ * @return The status of the callback.
+ */
+int AudioRecorder::recordCallback(const void* inputBuffer, void* outputBuffer,
                                   unsigned long framesPerBuffer,
-                                  const PaStreamCallbackTimeInfo *timeInfo,
+                                  const PaStreamCallbackTimeInfo* timeInfo,
                                   PaStreamCallbackFlags statusFlags,
-                                  void *userData) {
-    AudioRecorder *recorder = (AudioRecorder *)userData;
-    const sample *rptr = (const sample *)inputBuffer;
-    std::stringstream ss;
+                                  void* userData) {
+    AudioRecorder* recorder = (AudioRecorder*)userData;
+    const sample* rptr = (const sample*)inputBuffer;
+    stringstream ss;
     unsigned long i, j;
 
     (void)outputBuffer; /* Prevent unused variable warnings. */
     (void)timeInfo;
     (void)statusFlags;
 
+    // Process the recorded audio data
     for (i = 0; i < framesPerBuffer; ++i) {
         for (j = 0; j < num_channels; ++j) {
             ss << *rptr++ << "\n";
         }
     }
 
+    // Send the recorded audio data
     recorder->send(ss.str());
-
-    if (!recorder->is_playing()) {
-        return paComplete;
-    }
 
     return paContinue;
 }
