@@ -46,7 +46,7 @@ FetchContent_MakeAvailable(googletest)
 include_directories(${PortAudio_INCLUDE_DIR})
 
 # find packages
-find_package(Boost COMPONENTS log filesystem REQUIRED)
+find_package(Boost COMPONENTS filesystem log program_options REQUIRED)
 
 # source files
 set(source_dir "${PROJECT_SOURCE_DIR}/src/")
@@ -56,7 +56,7 @@ file(GLOB source_files "${source_dir}/*.cpp")
 add_executable(audio_stream ${source_files})
 
 # link libraries to the executable
-target_link_libraries(audio_stream pthread Boost::log ${PortAudio_LIBRARY_DIR}/libportaudio.a asound)
+target_link_libraries(audio_stream pthread Boost::log Boost::program_options ${PortAudio_LIBRARY_DIR}/libportaudio.a asound)
 
 # test files
 file(GLOB test_files "${PROJECT_SOURCE_DIR}/test/*.cpp")
