@@ -28,8 +28,8 @@ class Receiver {
      * data.
      */
     explicit Receiver(std::function<void(std::array<char, BUFFER_SIZE> buffer,
-                                size_t recv_bytes)>
-                 handle_receive_cb) {
+                                         size_t recv_bytes)>
+                          handle_receive_cb) {
         handle_receive_cb_ = handle_receive_cb;
     }
 
@@ -57,7 +57,7 @@ class UDPReceiver : public Receiver {
   public:
     UDPReceiver(const UDPReceiver&) = delete;
     UDPReceiver(const UDPReceiver&&) = delete;
-    void operator=(const UDPReceiver&) = delete;
+    UDPReceiver& operator=(const UDPReceiver&) = delete;
 
     /**
      * @brief Constructs a UDPReceiver object.
@@ -197,7 +197,7 @@ class UDPSender : public Sender {
   public:
     UDPSender(const UDPSender&) = delete;
     UDPSender(const UDPSender&&) = delete;
-    void operator=(const UDPSender&) = delete;
+    UDPSender& operator=(const UDPSender&) = delete;
 
     /**
      * @brief Constructs a UDPSender object.

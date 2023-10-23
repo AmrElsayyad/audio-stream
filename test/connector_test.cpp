@@ -5,7 +5,7 @@
 
 #include "../src/connector.hpp"
 
-#include <gtest/gtest.h>
+#include <catch.hpp>
 
 using std::array;
 using std::string;
@@ -15,7 +15,7 @@ using std::this_thread::sleep_for;
 /**
  * @brief Test case for sending and receiving data using UDP.
  */
-TEST(UDPTest, test_send_and_receive) {
+TEST_CASE("UDP_test_send_and_receive") {
     string received_message;
     UDPReceiver receiver = UDPReceiver(
         12345, [&](array<char, BUFFER_SIZE> buf, size_t recv_bytes) {
@@ -34,5 +34,5 @@ TEST(UDPTest, test_send_and_receive) {
 
     receiver.stop();
 
-    EXPECT_EQ(message, received_message);
+    CHECK(message == received_message);
 }

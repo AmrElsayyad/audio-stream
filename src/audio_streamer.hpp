@@ -54,7 +54,7 @@ class AudioPlayer {
   public:
     AudioPlayer(const AudioPlayer &) = delete;
     AudioPlayer(const AudioPlayer &&) = delete;
-    void operator=(const AudioPlayer &) = delete;
+    AudioPlayer &operator=(const AudioPlayer &) = delete;
 
     /**
      * @brief Constructs an AudioPlayer object.
@@ -110,7 +110,7 @@ class AudioRecorder {
   public:
     AudioRecorder(const AudioRecorder &) = delete;
     AudioRecorder(const AudioRecorder &&) = delete;
-    void operator=(const AudioRecorder &) = delete;
+    AudioRecorder &operator=(const AudioRecorder &) = delete;
 
     /**
      * @brief Constructs an AudioRecorder object.

@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "portaudio.h"
+#include <portaudio.h>
 
 /// The sample rate for audio processing.
 static constexpr const unsigned int sample_rate = 44100;

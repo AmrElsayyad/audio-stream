@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "boost-build",
+    "boost-log",
+    "boost-program-options",
+    "alsa",
+    "portaudio",
+    "catch2"
+  ]
+}
