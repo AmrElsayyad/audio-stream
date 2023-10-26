@@ -1,5 +1,7 @@
 # Audio Stream
 
+[![Test](https://github.com/AmrElsayyad/audio-stream/actions/workflows/test.yml/badge.svg)](https://github.com/AmrElsayyad/audio-stream/actions/workflows/test.yml)
+
 This project is designed for audio streaming functionality. It provides the ability to record, send, receive, and play audio.
 
 ## Getting Started
@@ -7,8 +9,8 @@ This project is designed for audio streaming functionality. It provides the abil
 To get started with this project:
 
 - Clone the repository to your local machine.
-- You need to have `CMake >= 3.21` installed.
-- Build the project using `build.sh` on Unix-based systems, or `build.bat` on Windows.
+- You need to have `CMake >= 3.21` installed, and `MinGW` on Windows.
+- Build the project using `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
 - Optionally, you can run unit tests using `./build/test/UnitTests`.
 - Run `./build/src/AudioStream` to start the audio streaming application.
 

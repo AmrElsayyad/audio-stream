@@ -1,10 +1,12 @@
 {
-  "dependencies": [
-    "boost-build",
-    "boost-log",
-    "boost-program-options",
-    "alsa",
-    "portaudio",
-    "catch2"
-  ]
+    "dependencies": [
+        "boost-log",
+        "boost-program-options",
+        {
+            "name": "alsa",
+            "platform": "linux"
+        },
+        "portaudio",
+        "gtest"
+    ]
 }

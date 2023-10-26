@@ -217,9 +217,6 @@ class UDPSender : public Sender {
         if (!is_valid_ip(ip)) {
             throw std::runtime_error("Invalid IP address.\n");
         }
-        if (!is_ip_reachable(ip)) {
-            throw std::runtime_error("IP: " + ip + " is unreachable.\n");
-        }
 
         socket_.open(boost::asio::ip::udp::v4());
 
@@ -262,19 +259,6 @@ class UDPSender : public Sender {
         boost::system::error_code ec;
         boost::asio::ip::address::from_string(ip, ec);
         return !ec;
-    }
-
-    /**
-     * Check if a given IP address is reachable.
-     * @param ip The IP address to check.
-     * @return True if the IP address is reachable, false otherwise.
-     */
-    static bool is_ip_reachable(const std::string& ip) {
-        /* -c <count>         stop after <count> replies
-        ** -w <deadline>      reply wait <deadline> in seconds
-        */
-        std::string command = "ping -c 1 -w 1 " + ip + " > /dev/null 2>&1";
-        return system(command.c_str()) == 0;
     }
 
     const std::string ip_; /**< The IP address to send the data to. */

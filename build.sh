@@ -6,9 +6,15 @@ set -x
 BASEDIR=$(dirname "$0")
 pushd "$BASEDIR"
 
-rm -rf build
+if [ -d "build" ]
+then
+    rm -rf build
+fi
 
-./vcpkg/bootstrap-vcpkg.sh
+if [ ! -e "./vcpkg/vcpkg" ]
+then
+    ./vcpkg/bootstrap-vcpkg.sh
+fi
 ./vcpkg/vcpkg install
 
 cmake -B build

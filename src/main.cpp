@@ -51,16 +51,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Suppress errors from "Pa_Initialize()"
-    // by replacing standard error with "/dev/null"
-    int saved_stderr = dup(STDERR_FILENO);
-    dup2(open("/dev/null", O_RDWR), STDERR_FILENO);
-
     // Initialize PortAudio
     err = Pa_Initialize();
-
-    // Restore standard error
-    dup2(saved_stderr, STDERR_FILENO);
 
     // Check if there is an error initializing PortAudio
     if (err != paNoError) {
