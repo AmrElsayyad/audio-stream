@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['is_5fip_5freachable_0',['is_ip_reachable',['../classUDPSender.html#aa81d88b1347c763534ff8bc91689c736',1,'UDPSender']]],
-  ['is_5fvalid_5fip_1',['is_valid_ip',['../classUDPSender.html#a55eb57cf9e2b697792c9e08fe1ec0d44',1,'UDPSender']]],
-  ['is_5fvalid_5fport_2',['is_valid_port',['../classUDPReceiver.html#a1c7be3903c5eaf8e76a0c37004022e1e',1,'UDPReceiver::is_valid_port()'],['../classUDPSender.html#ae729d1f7db9dd7bd6abfe6973789736f',1,'UDPSender::is_valid_port()']]]
+  ['get_5fport_93',['get_port',['../classUDPReceiver.html#ab574301a98ed5bd29914c68f105359af',1,'UDPReceiver::get_port()'],['../classBluetoothReceiver.html#a81af07ea1f05960a3edb0612bb1ea14b',1,'BluetoothReceiver::get_port()']]],
+  ['get_5fremote_5fendpoint_94',['get_remote_endpoint',['../classUDPReceiver.html#aa77feefb77d284b8b6555cf9876a1f38',1,'UDPReceiver']]]
 ];

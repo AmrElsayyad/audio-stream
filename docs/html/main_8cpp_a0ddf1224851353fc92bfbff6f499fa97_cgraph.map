@@ -1,5 +1,4 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,60,38"/>
-<area shape="rect" id="Node000002" href="$classAudioPlayer.html#a9e821e93d405c0c2cc09eaeb6036f809" title="Static callback function to handle received audio data." alt="" coords="108,5,260,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,23,94,23,94,28,60,28"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" id="node2" href="$classAudioPlayer.html#a82b56a61bdeb8fdf45b221da7e921fac" title="Static callback function to handle received audio data." alt="" coords="108,5,260,47"/>
 </map>

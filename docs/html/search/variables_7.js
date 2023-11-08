@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['sample_5fformat_0',['sample_format',['../audio__config_8hpp.html#a58dc5ec2774675687a22065cd1120033',1,'audio_config.hpp']]],
-  ['sample_5frate_1',['sample_rate',['../audio__config_8hpp.html#ae49c7bb2676dc14984dc0b191eb10674',1,'audio_config.hpp']]],
-  ['sample_5fsilence_2',['sample_silence',['../audio__config_8hpp.html#a74ff9107e2896c04f7dfba8185e2b520',1,'audio_config.hpp']]],
-  ['sender_5f_3',['sender_',['../classAudioRecorder.html#adb60cdc1a2cccaabe8ceda337b369c38',1,'AudioRecorder']]],
-  ['socket_5f_4',['socket_',['../classUDPReceiver.html#af6c06e225ee39eae0e25a817dd4a3125',1,'UDPReceiver::socket_'],['../classUDPSender.html#adc109bd6661267cf2d7aa801d4918a4c',1,'UDPSender::socket_']]],
-  ['stream_5f_5',['stream_',['../classAudioPlayer.html#af102e832ede7eae4bdc3d06085467e15',1,'AudioPlayer::stream_'],['../classAudioRecorder.html#af8bfcd20ba0052381859a2fdd0166276',1,'AudioRecorder::stream_']]]
+  ['polling_5f_133',['polling_',['../classBluetoothReceiver.html#a8137273641778462d042ced9f9e7a37c',1,'BluetoothReceiver::polling_()'],['../classBluetoothSender.html#a7c36d1f3066234c8ed5f63bf17be2166',1,'BluetoothSender::polling_()']]],
+  ['port_5f_134',['port_',['../classUDPReceiver.html#a8c919e13ad54a53cfa85b6c6dbce2c06',1,'UDPReceiver::port_()'],['../classBluetoothReceiver.html#aacc98f80a6118fc27be7fc0e6611c63f',1,'BluetoothReceiver::port_()'],['../classUDPSender.html#a53bf3873f14db03a74ab44949cfca599',1,'UDPSender::port_()'],['../classBluetoothSender.html#ac5f19ad161494ae86b82d925194e4a46',1,'BluetoothSender::port_()']]],
+  ['printf_5fs_5fformat_135',['printf_s_format',['../audio__config_8hpp.html#ad26cd51ff3342d049d0afdb186776466',1,'audio_config.hpp']]]
 ];

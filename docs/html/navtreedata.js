@@ -25,12 +25,21 @@
 var NAVTREE =
 [
   [ "Audio Stream", "index.html", [
-    [ "Getting Started", "index.html#autotoc_md1", null ],
-    [ "Code Overview", "index.html#autotoc_md2", null ],
-    [ "Usage", "index.html#autotoc_md3", null ],
-    [ "Contributing", "index.html#autotoc_md4", null ],
-    [ "Support", "index.html#autotoc_md5", null ],
-    [ "Topics", "topics.html", "topics" ],
+    [ "Build From Source", "index.html#autotoc_md1", [
+      [ "Requirements", "index.html#autotoc_md2", [
+        [ "General Requirements", "index.html#autotoc_md3", null ],
+        [ "Windows", "index.html#autotoc_md4", null ],
+        [ "Linux", "index.html#autotoc_md5", null ]
+      ] ],
+      [ "Build", "index.html#autotoc_md6", null ],
+      [ "Test", "index.html#autotoc_md7", null ],
+      [ "Usage", "index.html#autotoc_md8", null ]
+    ] ],
+    [ "Code Overview", "index.html#autotoc_md9", null ],
+    [ "Usage", "index.html#autotoc_md10", null ],
+    [ "Contributing", "index.html#autotoc_md11", null ],
+    [ "Support", "index.html#autotoc_md12", null ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

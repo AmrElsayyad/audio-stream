@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../classAudioPlayer.html#a0385b6c713c18f26ba73444087bb94cd',1,'AudioPlayer::operator=()'],['../classAudioRecorder.html#a95e468d7755ccfb1d8ba4072fec6cc05',1,'AudioRecorder::operator=()'],['../classUDPReceiver.html#ac8120ac7dcbab30236fe2995a1f8d6e0',1,'UDPReceiver::operator=()'],['../classUDPSender.html#a2c137722a2f9d2bc498ef85a1cda5ac9',1,'UDPSender::operator=()']]]
+  ['is_5fvalid_5fip_97',['is_valid_ip',['../classUDPSender.html#a55eb57cf9e2b697792c9e08fe1ec0d44',1,'UDPSender']]],
+  ['is_5fvalid_5fmac_98',['is_valid_mac',['../classBluetoothSender.html#a0e7d53cdf6f7c90075d390af6ee899fc',1,'BluetoothSender']]],
+  ['is_5fvalid_5fport_99',['is_valid_port',['../classUDPReceiver.html#a1c7be3903c5eaf8e76a0c37004022e1e',1,'UDPReceiver::is_valid_port()'],['../classUDPSender.html#ae729d1f7db9dd7bd6abfe6973789736f',1,'UDPSender::is_valid_port()'],['../classBluetoothSender.html#a6a86dae26c9ea7f54f8898331e625883',1,'BluetoothSender::is_valid_port()']]]
 ];

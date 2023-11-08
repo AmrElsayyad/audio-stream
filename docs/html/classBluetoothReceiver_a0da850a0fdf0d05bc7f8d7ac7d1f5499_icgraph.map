@@ -1,0 +1,4 @@
+<map id="BluetoothReceiver::stop" name="BluetoothReceiver::stop">
+<area shape="rect" id="node1" title="Stops the BluetoothReceiver." alt="" coords="207,13,385,39"/>
+<area shape="rect" id="node2" href="$classBluetoothReceiver.html#a11faff82bb8f4fa5f21c81cac2ceb750" title="Destroys the BluetoothReceiver object." alt="" coords="5,5,159,47"/>
+</map>

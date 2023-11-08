@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['udpreceiver_0',['UDPReceiver',['../classUDPReceiver.html',1,'']]],
-  ['udpsender_1',['UDPSender',['../classUDPSender.html',1,'']]]
+  ['receiver_77',['Receiver',['../classReceiver.html',1,'']]]
 ];

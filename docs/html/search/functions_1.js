@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get_5fport_0',['get_port',['../classUDPReceiver.html#a957dab9772fe414f30183551b420fd08',1,'UDPReceiver']]],
-  ['get_5fremote_5fendpoint_1',['get_remote_endpoint',['../classUDPReceiver.html#a72e4df8c80f086dfb4b05e5e98c20685',1,'UDPReceiver']]]
+  ['bluetoothreceiver_90',['BluetoothReceiver',['../classBluetoothReceiver.html#a3ffa26c45693636870da6b5db15782b8',1,'BluetoothReceiver::BluetoothReceiver(const BluetoothReceiver &amp;)=delete'],['../classBluetoothReceiver.html#a72ebd13c46774af9c95c9df2217b9a42',1,'BluetoothReceiver::BluetoothReceiver(const BluetoothReceiver &amp;&amp;)=delete'],['../classBluetoothReceiver.html#ac517370d757cb41d2583a6f7f9500627',1,'BluetoothReceiver::BluetoothReceiver(boost::shared_ptr&lt; Hive &gt; hive, int port, std::function&lt; void(uint8_t buffer[], size_t recv_bytes)&gt; handle_receive_cb)']]],
+  ['bluetoothsender_91',['BluetoothSender',['../classBluetoothSender.html#a6888f14826f7bfc89c2a56042d31da4b',1,'BluetoothSender::BluetoothSender(const BluetoothSender &amp;)=delete'],['../classBluetoothSender.html#a867fee9a01c40b12527eb27c886078ca',1,'BluetoothSender::BluetoothSender(const BluetoothSender &amp;&amp;)=delete'],['../classBluetoothSender.html#af0ca9c07f4818be6e3b60596490870c1',1,'BluetoothSender::BluetoothSender(boost::shared_ptr&lt; Hive &gt; hive, const std::string &amp;mac_address, int port)']]]
 ];

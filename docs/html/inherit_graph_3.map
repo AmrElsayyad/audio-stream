@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classSender.html" title="Abstract base class for sending data." alt="" coords="5,5,72,31"/>
-<area shape="rect" id="Node000001" href="$classUDPSender.html" title="Class for sending data over UDP." alt="" coords="120,5,215,31"/>
-<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="86,15,120,15,120,21,86,21"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,13,84,39"/>
+<area shape="rect" id="node2" href="$classBluetoothReceiver_1_1ConnectionAcceptor.html" title="Class responsible for accepting connections." alt="" coords="132,5,284,47"/>
 </map>

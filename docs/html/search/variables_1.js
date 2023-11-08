@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frames_5fper_5fbuffer_0',['frames_per_buffer',['../audio__config_8hpp.html#a5a1adc576ec6c2a1e53a1ef1d066e821',1,'audio_config.hpp']]]
+  ['buffer_5fsize_126',['BUFFER_SIZE',['../receiver_8hpp.html#ae1b7657d2f1604d5fa693472cf13b67e',1,'receiver.hpp']]]
 ];

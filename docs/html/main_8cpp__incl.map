@@ -1,23 +1,17 @@
 <map id="src/main.cpp" name="src/main.cpp">
-<area shape="rect" id="Node000001" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="153,5,258,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,205,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,33,134,73,131,68,188,29"/>
-<area shape="rect" id="Node000003" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="230,79,381,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,29,279,68,276,73,220,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="204,152,284,177"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="297,106,265,143,261,140,293,103"/>
-<area shape="rect" id="Node000005" href="$connector_8hpp.html" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="309,152,422,177"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="317,103,349,140,345,143,313,106"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="60,225,177,251"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="326,180,172,224,171,219,325,175"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="202,225,353,251"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="353,179,304,219,301,214,350,175"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="377,225,529,251"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="381,175,430,214,427,219,378,179"/>
-<area shape="rect" id="Node000009" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="554,225,686,251"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="407,175,567,219,565,224,406,180"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="540,299,599,324"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="614,253,588,289,583,286,609,249"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="623,299,719,324"/>
-<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="631,249,657,286,652,289,626,253"/>
+<area shape="rect" id="node1" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="346,5,451,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="199,80,399,107"/>
+<area shape="rect" id="node3" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="423,80,574,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="343,155,423,181"/>
+<area shape="rect" id="node5" href="$receiver_8hpp.html" title="The declarations of the Receiver interface and its implementations." alt="" coords="447,155,550,181"/>
+<area shape="rect" id="node14" href="$sender_8hpp.html" title="The declarations of the Sender interface and its implementations." alt="" coords="575,155,668,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="563,237,680,263"/>
+<area shape="rect" id="node7" title=" " alt="" coords="705,237,855,263"/>
+<area shape="rect" id="node8" title=" " alt="" coords="880,237,1032,263"/>
+<area shape="rect" id="node9" title=" " alt="" coords="5,237,184,263"/>
+<area shape="rect" id="node10" title=" " alt="" coords="208,229,381,271"/>
+<area shape="rect" id="node11" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="406,237,538,263"/>
+<area shape="rect" id="node12" title=" " alt="" coords="392,319,451,345"/>
+<area shape="rect" id="node13" title=" " alt="" coords="475,319,571,345"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1057,237,1183,263"/>
 </map>

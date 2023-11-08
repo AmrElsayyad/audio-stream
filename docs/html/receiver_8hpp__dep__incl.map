@@ -1,0 +1,6 @@
+<map id="src/receiver.hpp" name="src/receiver.hpp">
+<area shape="rect" id="node1" title="The declarations of the Receiver interface and its implementations." alt="" coords="111,5,236,32"/>
+<area shape="rect" id="node2" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,80,261,107"/>
+<area shape="rect" id="node3" href="$audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,155,179,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,155,309,181"/>
+</map>
