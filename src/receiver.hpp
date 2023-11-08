@@ -203,7 +203,7 @@ class BluetoothReceiver : public Receiver, public Connection {
         : Receiver(handle_receive_cb),
           port_(port),
           polling_(false),
-          acceptor_(std::make_shared<ConnectionAcceptor>(hive).get()),
+          acceptor_(new ConnectionAcceptor(hive)),
           Connection(hive) {}
 
     /**
@@ -219,7 +219,7 @@ class BluetoothReceiver : public Receiver, public Connection {
      */
     virtual inline void start() override {
         acceptor_->Listen(port_);
-        acceptor_->Accept(boost::shared_ptr<Connection>(this));
+        acceptor_->Accept(boost::shared_ptr<BluetoothReceiver>(this));
         polling_ = true;
         thread_ = std::thread([&] {
             while (polling_) {
@@ -376,7 +376,7 @@ class BluetoothReceiver : public Receiver, public Connection {
     };
 
   private:
-    const int port_;               /**< The port number to listen on. */
+    const int port_; /**< The port number to listen on. */
     boost::shared_ptr<ConnectionAcceptor> acceptor_; /**< The acceptor. */
     std::atomic<bool> polling_; /**< Whether the polling thread is running. */
     std::thread thread_;        /**< Polling thread for receiving data. */
