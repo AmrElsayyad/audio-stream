@@ -65,8 +65,7 @@ AudioPlayer::~AudioPlayer() {
  * @param buf The buffer containing the received audio data.
  * @param recv_bytes The number of received bytes.
  */
-void AudioPlayer::handle_receive_cb(array<char, BUFFER_SIZE> buf,
-                                    size_t recv_bytes) {
+void AudioPlayer::handle_receive_cb(uint8_t buf[], size_t recv_bytes) {
     if (!stream_) {
         return;
     }
@@ -76,8 +75,8 @@ void AudioPlayer::handle_receive_cb(array<char, BUFFER_SIZE> buf,
     unsigned long i, j;
 
     // Process the received audio data
-    for (const auto& c : buf) {
-        ss << c;
+    for (i = 0; i < recv_bytes; ++i) {
+        ss << buf[i];
     }
 
     for (i = 0; i < frames_per_buffer; ++i) {

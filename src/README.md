@@ -1,16 +1,37 @@
 # Audio Stream
 
+[![Test](https://github.com/AmrElsayyad/audio-stream/actions/workflows/test.yml/badge.svg)](https://github.com/AmrElsayyad/audio-stream/actions/workflows/test.yml)
+
 This project is designed for audio streaming functionality. It provides the ability to record, send, receive, and play audio.
 
-## Getting Started
+## Build From Source
 
-To get started with this project:
+### Requirements
 
-- Clone the repository to your local machine.
-- Install the necessary dependencies (such as Boost, and PortAudio).
-- Build the project using `cmake -B build && cmake --build build`
-- Optionally, you can run the tests using `./build/run_tests`
-- Run `./build/audio_stream` to start the audio streaming application.
+#### General Requirements
+
+- [CMake](https://cmake.org/) >= 3.21
+
+#### Windows
+
+- [MinGW](https://www.mingw-w64.org/)
+
+#### Linux
+
+- libbluetooth-dev
+- bluez
+
+### Build
+
+Run `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
+
+### Test
+
+Run `./build/test/UnitTests` to run the unit tests, or use `ctest` in the build directory.
+
+### Usage
+
+Run `./build/src/AudioStream` to start the audio streaming application.
 
 ## Code Overview
 
@@ -22,11 +43,11 @@ src/main.cpp: This file contains the main function. It initializes the AudioPlay
 
 To use the audio streaming application, follow these steps:
 
-- You can show the help message by running `./audio_stream -h`.
+- You can show the help message by running `./AudioStream -h`.
 - If you want to start as a player listening for recorders, use the `-p` or `--player` option followed by the port number.
-  For example: `./audio_stream -p 1234`
+  For example: `./AudioStream -p 1234`
 - If you want to start as a recorder sending to a player, use the `-r` or `--recorder` option followed by the IP address and port number.
-  For example: `./audio_stream -r 192.168.0.1:1234`
+  For example: `./AudioStream -r 192.168.0.1:1234`
 - Enter 'q' to quit the application.
 
 ## Contributing

@@ -25,5 +25,6 @@ find_package(GTest REQUIRED)
 
 enable_testing()
 
+add_subdirectory(boost_asio_bluetooth)
 add_subdirectory(src)
 add_subdirectory(test)

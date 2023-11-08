@@ -13,7 +13,8 @@
 
 #include <iostream>
 
-#include "connector.hpp"
+#include "receiver.hpp"
+#include "sender.hpp"
 
 /**
  * @defgroup sequence_diagrams Sequence Diagrams
@@ -72,8 +73,7 @@ class AudioPlayer {
      * @param buf The buffer containing the received audio data.
      * @param recv_bytes The number of received bytes.
      */
-    static void handle_receive_cb(std::array<char, BUFFER_SIZE> buf,
-                                  size_t recv_bytes);
+    static void handle_receive_cb(uint8_t buf[], size_t recv_bytes);
 
   private:
     const std::unique_ptr<Receiver>

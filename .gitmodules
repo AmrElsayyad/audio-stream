@@ -1,3 +1,7 @@
 [submodule "vcpkg"]
 	path = vcpkg
 	url = https://github.com/microsoft/vcpkg.git
+[submodule "boost_asio_bluetooth"]
+	path = boost_asio_bluetooth
+	url = https://github.com/AmrElsayyad/boost_asio_bluetooth/
+    branch = dev

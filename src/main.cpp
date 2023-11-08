@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
         ("player,p", po::value<int>(),
          "  start as player listening for recorders [arg = port]")  // player
         ("recorder,r", po::value<string>(),
-         "  start as recorder sending to a player [arg = ip:port]");  // recorder
+         "  start as recorder sending to a player [arg = mac_address:port]");  // recorder
 
     try {
         po::store(po::parse_command_line(argc, argv, desc), var_map);
@@ -61,33 +61,33 @@ int main(int argc, char* argv[]) {
 
     if (var_map.count("player") && (var_map.count("recorder"))) {
         cout << "You must specify either '-p [ --player ] port' or '-r [ "
-                "--recorder ] ip:port' not both\n";
+                "--recorder ] mac_address:port' not both\n";
         return 1;
     } else if (var_map.count("player")) {
         int port = var_map["player"].as<int>();
 
         // Start as audio player with the specified port
-        player_ptr = make_unique<AudioPlayer>(
-            make_unique<UDPReceiver>(port, AudioPlayer::handle_receive_cb));
+        player_ptr = make_unique<AudioPlayer>(make_unique<BluetoothReceiver>(
+            boost::shared_ptr<Hive>(), port, AudioPlayer::handle_receive_cb));
 
     } else if (var_map.count("recorder")) {
-        string ip_port = var_map["recorder"].as<string>();
-        size_t colon_pos = ip_port.find(':');
+        string mac_port = var_map["recorder"].as<string>();
+        size_t colon_pos = mac_port.find(':');
         if (colon_pos == string::npos) {
-            cout << "Invalid argument. Use format IP:PORT.\n";
+            cout << "Invalid argument. Use format MAC_ADDRESS:PORT.\n";
             return 1;
         }
 
-        int port = stoi(ip_port.substr(colon_pos + 1));
-        string ip = ip_port.substr(0, colon_pos);
+        int port = stoi(mac_port.substr(colon_pos + 1));
+        string mac_address = mac_port.substr(0, colon_pos);
 
-        // Start as audio recorder with the specified IP and port
-        recorder_ptr =
-            make_unique<AudioRecorder>(make_unique<UDPSender>(ip, port));
+        // Start as audio recorder with the specified MAC address and port
+        recorder_ptr = make_unique<AudioRecorder>(make_unique<BluetoothSender>(
+            boost::shared_ptr<Hive>(), mac_address, port));
 
     } else {
         cout << "You must specify either '-p [ --player ] port' or '-r "
-                "[--recorder ] ip:port'\n";
+                "[--recorder ] mac_address:port'\n";
         return 1;
     }
 

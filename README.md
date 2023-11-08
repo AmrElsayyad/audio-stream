@@ -4,15 +4,34 @@
 
 This project is designed for audio streaming functionality. It provides the ability to record, send, receive, and play audio.
 
-## Getting Started
+## Build From Source
 
-To get started with this project:
+### Requirements
 
-- Clone the repository to your local machine.
-- You need to have `CMake >= 3.21` installed, and `MinGW` on Windows.
-- Build the project using `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
-- Optionally, you can run unit tests using `./build/test/UnitTests`.
-- Run `./build/src/AudioStream` to start the audio streaming application.
+#### General Requirements
+
+- [CMake](https://cmake.org/) >= 3.21
+
+#### Windows
+
+- [MinGW](https://www.mingw-w64.org/)
+
+#### Linux
+
+- libbluetooth-dev
+- bluez
+
+### Build
+
+Run `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
+
+### Test
+
+Run `./build/test/UnitTests` to run the unit tests, or use `ctest` in the build directory.
+
+### Usage
+
+Run `./build/src/AudioStream` to start the audio streaming application.
 
 ## Code Overview
 
