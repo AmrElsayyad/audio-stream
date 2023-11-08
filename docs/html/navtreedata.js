@@ -28,17 +28,16 @@ var NAVTREE =
     [ "Build From Source", "index.html#autotoc_md1", [
       [ "Requirements", "index.html#autotoc_md2", [
         [ "General Requirements", "index.html#autotoc_md3", null ],
-        [ "Windows", "index.html#autotoc_md4", null ],
-        [ "Linux", "index.html#autotoc_md5", null ]
+        [ "Windows", "index.html#autotoc_md4", null ]
       ] ],
-      [ "Build", "index.html#autotoc_md6", null ],
-      [ "Test", "index.html#autotoc_md7", null ],
-      [ "Usage", "index.html#autotoc_md8", null ]
+      [ "Build", "index.html#autotoc_md5", null ],
+      [ "Test", "index.html#autotoc_md6", null ],
+      [ "Usage", "index.html#autotoc_md7", null ]
     ] ],
-    [ "Code Overview", "index.html#autotoc_md9", null ],
-    [ "Usage", "index.html#autotoc_md10", null ],
-    [ "Contributing", "index.html#autotoc_md11", null ],
-    [ "Support", "index.html#autotoc_md12", null ],
+    [ "Code Overview", "index.html#autotoc_md8", null ],
+    [ "Usage", "index.html#autotoc_md9", null ],
+    [ "Contributing", "index.html#autotoc_md10", null ],
+    [ "Support", "index.html#autotoc_md11", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

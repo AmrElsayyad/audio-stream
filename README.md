@@ -16,11 +16,6 @@ This project is designed for audio streaming functionality. It provides the abil
 
 - [MinGW](https://www.mingw-w64.org/)
 
-#### Linux
-
-- libbluetooth-dev
-- bluez
-
 ### Build
 
 Run `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
@@ -44,10 +39,10 @@ src/main.cpp: This file contains the main function. It initializes the AudioPlay
 To use the audio streaming application, follow these steps:
 
 - You can show the help message by running `./AudioStream -h`.
-- If you want to start as a player listening for recorders, use the `-p` or `--player` option followed by the port number.
-  For example: `./AudioStream -p 1234`
-- If you want to start as a recorder sending to a player, use the `-r` or `--recorder` option followed by the IP address and port number.
-  For example: `./AudioStream -r 192.168.0.1:1234`
+- If you want to start as a player listening for recorders, use the `-p [ --player ]` option followed by the port number.
+  For example: `./AudioStream -p 13`
+- If you want to start as a recorder sending to a player, use the `-r [ --recorder ]` option followed by `-m [ --mac-address ] mac_address -p [ --port ] port`.
+  For example: `./AudioStream -r -m 94:39:E5:8E:5A:A2 -p 13`
 - Enter 'q' to quit the application.
 
 ## Contributing

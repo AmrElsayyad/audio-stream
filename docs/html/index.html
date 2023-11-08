@@ -104,38 +104,32 @@ Windows</h3>
 <ul>
 <li><a href="https://www.mingw-w64.org/">MinGW</a></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md5"></a>
-Linux</h3>
-<ul>
-<li>libbluetooth-dev</li>
-<li>bluez</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Build</h2>
 <p>Run <code>./build.sh</code> on Unix-based systems, or <code>.\build.bat</code> on Windows.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Test</h2>
 <p>Run <code>./build/test/UnitTests</code> to run the unit tests, or use <code>ctest</code> in the build directory.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Usage</h2>
 <p>Run <code>./build/src/AudioStream</code> to start the audio streaming application.</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Code Overview</h1>
 <p><a class="el" href="audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming.">src/audio_streamer.hpp</a>: This file contains the definitions of the <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a> and <a class="el" href="classAudioRecorder.html" title="Class for recording audio.">AudioRecorder</a> classes. The <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a> class is responsible for receiving and playing audio, and the <a class="el" href="classAudioRecorder.html" title="Class for recording audio.">AudioRecorder</a> class is used for recording and sending audio.</p>
 <p><a class="el" href="main_8cpp.html" title="The main entry point of the program and command-line options for starting as a player or recorder.">src/main.cpp</a>: This file contains the main function. It initializes the <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a> and <a class="el" href="classAudioRecorder.html" title="Class for recording audio.">AudioRecorder</a> and runs the main event loop.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Usage</h1>
 <p>To use the audio streaming application, follow these steps:</p>
 <ul>
 <li>You can show the help message by running <code>./AudioStream -h</code>.</li>
-<li>If you want to start as a player listening for recorders, use the <code>-p</code> or <code>--player</code> option followed by the port number. For example: <code>./AudioStream -p 1234</code></li>
-<li>If you want to start as a recorder sending to a player, use the <code>-r</code> or <code>--recorder</code> option followed by the IP address and port number. For example: <code>./AudioStream -r 192.168.0.1:1234</code></li>
+<li>If you want to start as a player listening for recorders, use the <code>-p [ --player ]</code> option followed by the port number. For example: <code>./AudioStream -p 13</code></li>
+<li>If you want to start as a recorder sending to a player, use the <code>-r [ --recorder ]</code> option followed by <code>-m [ --mac-address ] mac_address -p [ --port ] port</code>. For example: <code>./AudioStream -r -m 94:39:E5:8E:5A:A2 -p 13</code></li>
 <li>Enter 'q' to quit the application.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Contributing</h1>
 <p>Contributions are welcome. Please feel free to submit a pull request or open an issue if you encounter any problems or have suggestions for improvements.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Support</h1>
 <p>For any questions or support, please email: <a href="#" onclick="location.href='mai'+'lto:'+'amr'+'el'+'say'+'ya'+'d96'+'@o'+'utl'+'oo'+'k.c'+'om'; return false;">amrel<span style="display: none;">.nosp@m.</span>sayy<span style="display: none;">.nosp@m.</span>ad96@<span style="display: none;">.nosp@m.</span>outl<span style="display: none;">.nosp@m.</span>ook.c<span style="display: none;">.nosp@m.</span>om</a></p>
 <p>Enjoy using Audio Stream! </p>
