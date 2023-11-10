@@ -7,14 +7,9 @@
 #define RECEIVER_HPP
 
 #include <boost/asio.hpp>
-#include <boost/bind/bind.hpp>
-#include <boost/log/trivial.hpp>
 #include <boost/thread/mutex.hpp>
 
-#include "../boost_asio_bluetooth/wrapper.h"
-#include "audio_config.hpp"
-
-static constexpr const unsigned int BUFFER_SIZE = 8192;
+#include "boost_asio_bluetooth/wrapper.h"
 
 /**
  * @class Receiver
@@ -41,12 +36,12 @@ class Receiver {
     /**
      * @brief Starts the receiver.
      */
-    virtual inline void start() = 0;
+    virtual void start() = 0;
 
     /**
      * @brief Stops the receiver.
      */
-    virtual inline void stop() = 0;
+    virtual void stop() = 0;
 
   protected:
     std::function<void(uint8_t buffer[], size_t recv_bytes)>
@@ -58,11 +53,14 @@ class Receiver {
  * @class UDPReceiver
  * @brief Class for receiving data over UDP.
  */
-class UDPReceiver : public Receiver {
+class UDPReceiver : public Receiver,
+                    public boost::enable_shared_from_this<UDPReceiver> {
   public:
     UDPReceiver(const UDPReceiver&) = delete;
     UDPReceiver(const UDPReceiver&&) = delete;
+
     UDPReceiver& operator=(const UDPReceiver&) = delete;
+    UDPReceiver& operator=(const UDPReceiver&&) = delete;
 
     /**
      * @brief Constructs a UDPReceiver object.
@@ -71,72 +69,34 @@ class UDPReceiver : public Receiver {
      */
     explicit UDPReceiver(
         int port, std::function<void(uint8_t buffer[], size_t recv_bytes)>
-                      handle_receive_cb)
-        : Receiver(handle_receive_cb),
-          port_(port),
-          io_service_(boost::asio::io_service()),
-          socket_(boost::asio::ip::udp::socket(io_service_)) {
-        // Validate Port
-        if (!is_valid_port(port)) {
-            throw std::runtime_error(
-                "Invalid port number. Port must be between 1 and 65535.\n");
-        }
-    }
+                      handle_receive_cb);
 
     /**
      * @brief Destroys the UDPReceiver object.
      */
-    ~UDPReceiver() {
-        stop();
-        handle_receive_cb_ = nullptr;
-    }
+    ~UDPReceiver();
 
     /**
      * @brief Starts the UDP receiver.
      */
-    virtual inline void start() override {
-        socket_.open(boost::asio::ip::udp::v4());
-        socket_.bind(boost::asio::ip::udp::endpoint(
-            boost::asio::ip::address_v4::loopback(), port_));
-
-        thread_ = std::thread([&] {
-            wait();
-            io_service_.run();
-        });
-
-        BOOST_LOG_TRIVIAL(info)
-            << "UDPReceiver started listening on port: " << port_;
-    }
+    virtual void start() override;
 
     /**
      * @brief Stops the UDP receiver.
      */
-    virtual inline void stop() override {
-        io_service_.stop();
-
-        if (thread_.joinable()) {
-            thread_.join();
-        }
-
-        socket_.close();
-
-        BOOST_LOG_TRIVIAL(info)
-            << "UDPReceiver stopped listening on port: " << port_;
-    }
+    virtual void stop() override;
 
     /**
      * @brief Gets the port number that the receiver is listening on.
      * @return The port number.
      */
-    inline const int& get_port() const { return port_; }
+    const int& get_port() const;
 
     /**
      * @brief Gets the remote endpoint from which data is received.
      * @return The remote endpoint.
      */
-    inline const boost::asio::ip::udp::endpoint& get_remote_endpoint() const {
-        return remote_endpoint_;
-    }
+    const boost::asio::ip::udp::endpoint& get_remote_endpoint() const;
 
   private:
     /**
@@ -144,29 +104,20 @@ class UDPReceiver : public Receiver {
      * @param port The port number to check.
      * @return True if the port number is valid, false otherwise.
      */
-    static bool is_valid_port(int port) { return (port > 0 && port <= 65535); }
+    static bool is_valid_port(int port);
 
     /**
      * @brief Wrapper function for handling received data.
      * @param error The error code.
      * @param recv_bytes The number of received bytes.
      */
-    inline void handle_receive_wrapper(const boost::system::error_code& error,
-                                       size_t recv_bytes) {
-        handle_receive_cb_(recv_buf_.data(), recv_bytes);
-        wait();
-    }
+    void handle_receive_wrapper(const boost::system::error_code& error,
+                                       size_t recv_bytes);
 
     /**
      * @brief Waits for data to be received.
      */
-    inline void wait() {
-        socket_.async_receive_from(
-            boost::asio::buffer(recv_buf_), remote_endpoint_,
-            boost::bind(&UDPReceiver::handle_receive_wrapper, this,
-                        boost::asio::placeholders::error,
-                        boost::asio::placeholders::bytes_transferred));
-    }
+    void wait();
 
   private:
     const int port_; /**< The port number to listen on. */
@@ -189,7 +140,9 @@ class BluetoothReceiver : public Receiver, public Connection {
   public:
     BluetoothReceiver(const BluetoothReceiver&) = delete;
     BluetoothReceiver(const BluetoothReceiver&&) = delete;
+
     BluetoothReceiver& operator=(const BluetoothReceiver&) = delete;
+    BluetoothReceiver& operator=(const BluetoothReceiver&&) = delete;
 
     /**
      * @brief Constructs a BluetoothReceiver object.
@@ -199,57 +152,28 @@ class BluetoothReceiver : public Receiver, public Connection {
     explicit BluetoothReceiver(
         boost::shared_ptr<Hive> hive, int port,
         std::function<void(uint8_t buffer[], size_t recv_bytes)>
-            handle_receive_cb)
-        : Receiver(handle_receive_cb),
-          port_(port),
-          polling_(false),
-          acceptor_(new ConnectionAcceptor(hive)),
-          Connection(hive) {}
+            handle_receive_cb);
 
     /**
      * @brief Destroys the BluetoothReceiver object.
      */
-    ~BluetoothReceiver() {
-        stop();
-        handle_receive_cb_ = nullptr;
-    }
+    ~BluetoothReceiver();
 
     /**
      * @brief Starts the BluetoothReceiver.
      */
-    virtual inline void start() override {
-        acceptor_->Listen(port_);
-        acceptor_->Accept(boost::shared_ptr<BluetoothReceiver>(this));
-        polling_ = true;
-        thread_ = std::thread([&] {
-            while (polling_) {
-                GetHive()->Poll();
-            }
-        });
-
-        BOOST_LOG_TRIVIAL(info)
-            << "BluetoothReceiver started listening on port: " << port_;
-    }
+    virtual void start() override;
 
     /**
      * @brief Stops the BluetoothReceiver.
      */
-    virtual inline void stop() override {
-        polling_ = false;
-        if (thread_.joinable()) {
-            thread_.join();
-        }
-        GetHive()->Stop();
-
-        BOOST_LOG_TRIVIAL(info)
-            << "BluetoothReceiver stopped listening on port: " << port_;
-    }
+    virtual void stop() override;
 
     /**
      * @brief Gets the port number that the receiver is listening on.
      * @return The port number.
      */
-    inline const int& get_port() const { return port_; }
+    const int& get_port() const;
 
   private:
     /**
@@ -258,14 +182,7 @@ class BluetoothReceiver : public Receiver, public Connection {
      * @param mac_addr the MAC address of the accepted connection
      * @param channel the channel of the accepted connection
      */
-    void OnAccept(const std::string& mac_addr, uint8_t channel) override {
-        acceptor_->stream_lock_.lock();
-        BOOST_LOG_TRIVIAL(info)
-            << "[OnAccept] " << mac_addr << ":" << channel << "\n";
-        acceptor_->stream_lock_.unlock();
-
-        Recv();
-    }
+    void OnAccept(const std::string& mac_addr, uint8_t channel) override;
 
     /**
      * OnConnect function is called when a connection is established.
@@ -273,13 +190,7 @@ class BluetoothReceiver : public Receiver, public Connection {
      * @param mac_addr the MAC address of the connected device
      * @param channel the channel used for the connection
      */
-    void OnConnect(const std::string& mac_addr, uint8_t channel) override {
-        BOOST_LOG_TRIVIAL(info)
-            << "[OnConnect] " << mac_addr << ":" << channel << "\n";
-        acceptor_->stream_lock_.unlock();
-
-        Recv();
-    }
+    void OnConnect(const std::string& mac_addr, uint8_t channel) override;
 
     /**
      * Sends a std::vector buffer.
@@ -293,13 +204,7 @@ class BluetoothReceiver : public Receiver, public Connection {
      *
      * @param buffer The std::vector buffer containing the data to be processed.
      */
-    void OnRecv(std::vector<uint8_t>& buffer) override {
-        acceptor_->stream_lock_.lock();
-        handle_receive_cb_(buffer.data(), buffer.size());
-        acceptor_->stream_lock_.unlock();
-
-        Recv();
-    }
+    void OnRecv(std::vector<uint8_t>& buffer) override;
 
     /**
      * OnTimer is called when timer expires.
@@ -313,29 +218,35 @@ class BluetoothReceiver : public Receiver, public Connection {
      *
      * @param error The error code that occurred.
      */
-    void OnError(const boost::system::error_code& error) override {
-        acceptor_->stream_lock_.lock();
-        BOOST_LOG_TRIVIAL(error) << "[OnError] " << error << "\n";
-        acceptor_->stream_lock_.unlock();
-    }
+    void OnError(const boost::system::error_code& error) override;
 
     /**
      * @class ConnectionAcceptor
-     * @brief Class responsible for accepting connections.
+     * @brief A class that handles the accept event for a connection.
      *
-     * This class is used to handle the acceptance of incoming connections.
-     * It provides methods for accepting connections, handling timer events, and
-     * handling errors.
+     * This class inherits from the base class Acceptor and provides
+     * functionality to handle the accept event for a connection. It logs the
+     * address and channel of the connection and returns true to indicate that
+     * the accept event was handled successfully. It also handles timer events
+     * and errors by logging them.
      */
     class ConnectionAcceptor : public Acceptor {
       public:
+        /**
+         * @brief Constructor for ConnectionAcceptor.
+         *
+         * @param hive A shared pointer to a Hive object.
+         */
         ConnectionAcceptor(boost::shared_ptr<Hive> hive) : Acceptor(hive) {}
 
+        /**
+         * @brief Destructor for ConnectionAcceptor.
+         */
         ~ConnectionAcceptor() {}
 
       private:
         /**
-         * Handles the accept event for a connection.
+         * @brief Handles the accept event for a connection.
          *
          * @param connection A shared pointer to the Connection object.
          * @param addr The address of the connection.
@@ -344,32 +255,21 @@ class BluetoothReceiver : public Receiver, public Connection {
          * @return true if the accept event was handled successfully.
          */
         bool OnAccept(boost::shared_ptr<Connection> connection,
-                      const std::string& addr, uint8_t channel) override {
-            stream_lock_.lock();
-            BOOST_LOG_TRIVIAL(info)
-                << "[OnAccept] " << addr << ":" << channel << "\n";
-            stream_lock_.unlock();
-
-            return true;
-        }
+                      const std::string& addr, uint8_t channel) override;
 
         /**
-         * Handle the timer event.
+         * @brief Handles the timer event.
          *
-         * @param delta the time duration since the last timer event.
+         * @param delta The time duration since the last timer event.
          */
         void OnTimer(const boost::posix_time::time_duration& delta) override {}
 
         /**
-         * Handle an error that occurs in the program.
+         * @brief Handles an error that occurs in the program.
          *
          * @param error The error code representing the error that occurred.
          */
-        void OnError(const boost::system::error_code& error) override {
-            stream_lock_.lock();
-            BOOST_LOG_TRIVIAL(error) << "[OnError] " << error << "\n";
-            stream_lock_.unlock();
-        }
+        void OnError(const boost::system::error_code& error) override;
 
       public:
         boost::mutex stream_lock_; /**< The stream lock. */

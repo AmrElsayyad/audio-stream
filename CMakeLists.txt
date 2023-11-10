@@ -13,7 +13,7 @@ file(GLOB VCPKG_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/vcpkg_installed/*/include)
 file(GLOB VCPKG_LIBRARY_DIR ${CMAKE_SOURCE_DIR}/vcpkg_installed/*/lib)
 file(GLOB VCPKG_SHARE_DIR ${CMAKE_SOURCE_DIR}/vcpkg_installed/*/share/*)
 
-include_directories(${VCPKG_INCLUDE_DIR})
+include_directories(./ ${VCPKG_INCLUDE_DIR})
 link_directories(${VCPKG_LIBRARY_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${VCPKG_SHARE_DIR})
 

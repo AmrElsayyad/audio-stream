@@ -4,9 +4,11 @@
  * for starting as a player or recorder.
  */
 
+#include <boost/make_shared.hpp>
 #include <boost/program_options.hpp>
+#include <iostream>
 
-#include "audio_streamer.hpp"
+#include "audio_stream.hpp"
 
 using std::cin;
 using std::cout;
@@ -28,8 +30,7 @@ int main(int argc, char* argv[]) {
     po::options_description desc("Options");
     po::variables_map var_map;
     PaError err{paNoError};
-    boost::shared_ptr<Hive> hive(new Hive());
-    unique_ptr<AudioPlayer> player_ptr;
+    unique_ptr<AudioSpeaker> speaker_ptr;
     unique_ptr<AudioRecorder> recorder_ptr;
 
     desc.add_options()  // Pairs of (name, [value_semantic,] description)
@@ -75,8 +76,10 @@ int main(int argc, char* argv[]) {
         int port = var_map["speaker"].as<int>();
 
         // Start as audio player with the specified port
-        player_ptr = make_unique<AudioPlayer>(make_unique<BluetoothReceiver>(
-            hive, port, AudioPlayer::handle_receive_cb));
+        speaker_ptr =
+            make_unique<AudioSpeaker>(boost::make_shared<BluetoothReceiver>(
+                boost::make_shared<Hive>(), port,
+                AudioSpeaker::handle_receive_cb));
 
     } else if (var_map.count("recorder")) {
         if (!var_map.count("mac-address")) {
@@ -92,8 +95,9 @@ int main(int argc, char* argv[]) {
         int port = var_map["port"].as<int>();
 
         // Start as audio recorder with the specified MAC address and port
-        recorder_ptr = make_unique<AudioRecorder>(
-            make_unique<BluetoothSender>(hive, mac_address, port));
+        recorder_ptr =
+            make_unique<AudioRecorder>(boost::make_shared<BluetoothSender>(
+                boost::make_shared<Hive>(), mac_address, port));
 
     } else {
         cout << "You must specify either '-s [ --speaker ] port' or '-r [ "
@@ -104,7 +108,7 @@ int main(int argc, char* argv[]) {
 
     // Main loop
     while (true) {
-        cout << "Enter q to quit\t";
+        cout << "Enter q to quit\n";
         string input;
         getline(cin, input);
         if (input == "q" || input == "Q") {
@@ -113,7 +117,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Release resources
-    player_ptr.release();
+    speaker_ptr.release();
     recorder_ptr.release();
 
     // Terminate PortAudio
