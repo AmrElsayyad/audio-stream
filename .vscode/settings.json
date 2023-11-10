@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "atomic": "cpp",
+        "future": "cpp",
+        "ostream": "cpp",
+        "qbluetoothdevicediscoveryagent": "cpp",
+        "qaudiooutput": "cpp",
+        "qbluetoothserviceinfo": "cpp",
+        "qbytearray": "cpp",
+        "*.ipp": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp",
+        "array": "cpp"
+    },
+    "C_Cpp.default.compileCommands": "build/compile_commands.json"
+}

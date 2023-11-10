@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "x64-linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/vcpkg_installed/x64-linux/include"
+            ],
+            "defines": [],
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerPath": "/usr/bin/clang++-15"
+        }
+    ],
+    "version": 4
+}
