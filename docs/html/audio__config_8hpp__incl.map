@@ -1,5 +1,5 @@
-<map id="src/audio_config.hpp" name="src/audio_config.hpp">
-<area shape="rect" id="node1" title="Configuration constants and typedefs for audio processing." alt="" coords="8,5,163,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,64,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="88,80,184,107"/>
+<map id="src/audio_stream/audio_config.hpp" name="src/audio_stream/audio_config.hpp">
+<area shape="rect" id="node1" title="Configuration constants and typedefs for audio processing." alt="" coords="5,5,180,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="13,95,71,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="95,95,191,121"/>
 </map>

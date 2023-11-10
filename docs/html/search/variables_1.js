@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buffer_5fsize_126',['BUFFER_SIZE',['../receiver_8hpp.html#ae1b7657d2f1604d5fa693472cf13b67e',1,'receiver.hpp']]]
+  ['connection_5f_135',['connection_',['../classBluetoothSender.html#a15796d9e551cf341a991ce6bd731c061',1,'BluetoothSender']]]
 ];

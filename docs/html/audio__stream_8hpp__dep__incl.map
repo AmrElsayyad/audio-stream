@@ -1,0 +1,5 @@
+<map id="src/audio_stream/audio_stream.hpp" name="src/audio_stream/audio_stream.hpp">
+<area shape="rect" id="node1" title="The declarations of the AudioSpeaker and AudioRecorder classes for audio streaming." alt="" coords="87,5,261,47"/>
+<area shape="rect" id="node2" href="$audio__stream_8cpp.html" title="Implementation of the AudioSpeaker and AudioRecorder classes for audio streaming." alt="" coords="5,95,180,136"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="204,102,309,129"/>
+</map>

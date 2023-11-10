@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Audio Stream: src/receiver.hpp File Reference</title>
+<title>Audio Stream: src/audio_stream/receiver.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,8 +85,7 @@ $(document).ready(function(){initNavTree('receiver_8hpp.html',''); initResizable
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">receiver.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -95,36 +94,29 @@ $(document).ready(function(){initNavTree('receiver_8hpp.html',''); initResizable
 <p>The declarations of the <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> interface and its implementations.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;boost/asio.hpp&gt;</code><br />
-<code>#include &lt;boost/bind/bind.hpp&gt;</code><br />
-<code>#include &lt;boost/log/trivial.hpp&gt;</code><br />
 <code>#include &lt;boost/thread/mutex.hpp&gt;</code><br />
-<code>#include &quot;../boost_asio_bluetooth/wrapper.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="audio__config_8hpp_source.html">audio_config.hpp</a>&quot;</code><br />
+<code>#include &quot;boost_asio_bluetooth/wrapper.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for receiver.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="receiver_8hpp__incl.png" border="0" usemap="#asrc_2receiver_8hpp" alt=""/></div>
-<map name="asrc_2receiver_8hpp" id="asrc_2receiver_8hpp">
-<area shape="rect" title="The declarations of the Receiver interface and its implementations." alt="" coords="431,5,556,32"/>
+<div class="center"><img src="receiver_8hpp__incl.png" border="0" usemap="#asrc_2audio__stream_2receiver_8hpp" alt=""/></div>
+<map name="asrc_2audio__stream_2receiver_8hpp" id="asrc_2audio__stream_2receiver_8hpp">
+<area shape="rect" title="The declarations of the Receiver interface and its implementations." alt="" coords="127,5,345,32"/>
 <area shape="rect" title=" " alt="" coords="5,87,123,114"/>
-<area shape="rect" title=" " alt="" coords="147,87,298,114"/>
-<area shape="rect" title=" " alt="" coords="323,87,475,114"/>
-<area shape="rect" title=" " alt="" coords="499,87,677,114"/>
-<area shape="rect" title=" " alt="" coords="701,80,875,121"/>
-<area shape="rect" href="audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="899,87,1031,114"/>
-<area shape="rect" title=" " alt="" coords="885,169,944,196"/>
-<area shape="rect" title=" " alt="" coords="968,169,1064,196"/>
+<area shape="rect" title=" " alt="" coords="147,87,325,114"/>
+<area shape="rect" title=" " alt="" coords="350,80,511,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="receiver_8hpp__dep__incl.png" border="0" usemap="#asrc_2receiver_8hppdep" alt=""/></div>
-<map name="asrc_2receiver_8hppdep" id="asrc_2receiver_8hppdep">
-<area shape="rect" title="The declarations of the Receiver interface and its implementations." alt="" coords="111,5,236,32"/>
-<area shape="rect" href="audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,80,261,107"/>
-<area shape="rect" href="audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,155,179,181"/>
-<area shape="rect" href="main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,155,309,181"/>
+<div class="center"><img src="receiver_8hpp__dep__incl.png" border="0" usemap="#asrc_2audio__stream_2receiver_8hppdep" alt=""/></div>
+<map name="asrc_2audio__stream_2receiver_8hppdep" id="asrc_2audio__stream_2receiver_8hppdep">
+<area shape="rect" title="The declarations of the Receiver interface and its implementations." alt="" coords="174,5,393,32"/>
+<area shape="rect" href="audio__stream_8hpp.html" title="The declarations of the AudioSpeaker and AudioRecorder classes for audio streaming." alt="" coords="87,80,261,121"/>
+<area shape="rect" href="receiver_8cpp.html" title="The definitions of the Receiver interface and its implementations." alt="" coords="285,87,503,114"/>
+<area shape="rect" href="audio__stream_8cpp.html" title="Implementation of the AudioSpeaker and AudioRecorder classes for audio streaming." alt="" coords="5,169,180,211"/>
+<area shape="rect" href="main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="204,177,309,203"/>
 </map>
 </div>
 </div>
@@ -142,43 +134,15 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for receiving data over bluetooth.  <a href="classBluetoothReceiver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html">BluetoothReceiver::ConnectionAcceptor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class responsible for accepting connections.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that handles the accept event for a connection.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ae1b7657d2f1604d5fa693472cf13b67e"><td class="memItemLeft" align="right" valign="top">static constexpr const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="receiver_8hpp.html#ae1b7657d2f1604d5fa693472cf13b67e">BUFFER_SIZE</a> = 8192</td></tr>
-<tr class="separator:ae1b7657d2f1604d5fa693472cf13b67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ae1b7657d2f1604d5fa693472cf13b67e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1b7657d2f1604d5fa693472cf13b67e">&#9670;&nbsp;</a></span>BUFFER_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const unsigned int BUFFER_SIZE = 8192</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="receiver_8hpp.html">receiver.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_59536d6853c87aba3416ced8f0871f8c.html">audio_stream</a></li><li class="navelem"><a class="el" href="receiver_8hpp.html">receiver.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

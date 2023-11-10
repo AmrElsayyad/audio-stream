@@ -1,11 +1,6 @@
-<map id="src/receiver.hpp" name="src/receiver.hpp">
-<area shape="rect" id="node1" title="The declarations of the Receiver interface and its implementations." alt="" coords="431,5,556,32"/>
+<map id="src/audio_stream/receiver.hpp" name="src/audio_stream/receiver.hpp">
+<area shape="rect" id="node1" title="The declarations of the Receiver interface and its implementations." alt="" coords="127,5,345,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,87,123,114"/>
-<area shape="rect" id="node3" title=" " alt="" coords="147,87,298,114"/>
-<area shape="rect" id="node4" title=" " alt="" coords="323,87,475,114"/>
-<area shape="rect" id="node5" title=" " alt="" coords="499,87,677,114"/>
-<area shape="rect" id="node6" title=" " alt="" coords="701,80,875,121"/>
-<area shape="rect" id="node7" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="899,87,1031,114"/>
-<area shape="rect" id="node8" title=" " alt="" coords="885,169,944,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="968,169,1064,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="147,87,325,114"/>
+<area shape="rect" id="node4" title=" " alt="" coords="350,80,511,121"/>
 </map>

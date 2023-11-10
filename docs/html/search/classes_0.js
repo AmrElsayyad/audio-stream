@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['audioplayer_72',['AudioPlayer',['../classAudioPlayer.html',1,'']]],
-  ['audiorecorder_73',['AudioRecorder',['../classAudioRecorder.html',1,'']]]
+  ['audiorecorder_76',['AudioRecorder',['../classAudioRecorder.html',1,'']]],
+  ['audiospeaker_77',['AudioSpeaker',['../classAudioSpeaker.html',1,'']]]
 ];

@@ -1,7 +1,7 @@
 var annotated_dup =
 [
-    [ "AudioPlayer", "classAudioPlayer.html", "classAudioPlayer" ],
     [ "AudioRecorder", "classAudioRecorder.html", "classAudioRecorder" ],
+    [ "AudioSpeaker", "classAudioSpeaker.html", "classAudioSpeaker" ],
     [ "BluetoothReceiver", "classBluetoothReceiver.html", "classBluetoothReceiver" ],
     [ "BluetoothSender", "classBluetoothSender.html", "classBluetoothSender" ],
     [ "Receiver", "classReceiver.html", "classReceiver" ],

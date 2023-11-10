@@ -94,14 +94,14 @@ $(document).ready(function(){initNavTree('classBluetoothReceiver_1_1ConnectionAc
 </div><!--header-->
 <div class="contents">
 
-<p>Class responsible for accepting connections.  
+<p>A class that handles the accept event for a connection.  
  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for BluetoothReceiver::ConnectionAcceptor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBluetoothReceiver_1_1ConnectionAcceptor__coll__graph.png" border="0" usemap="#aBluetoothReceiver_1_1ConnectionAcceptor_coll__map" alt="Collaboration graph"/></div>
 <map name="aBluetoothReceiver_1_1ConnectionAcceptor_coll__map" id="aBluetoothReceiver_1_1ConnectionAcceptor_coll__map">
-<area shape="rect" title="Class responsible for accepting connections." alt="" coords="5,131,193,281"/>
+<area shape="rect" title="A class that handles the accept event for a connection." alt="" coords="5,131,193,281"/>
 <area shape="rect" title=" " alt="" coords="60,5,139,83"/>
 </map>
 </div>
@@ -109,8 +109,10 @@ Collaboration diagram for BluetoothReceiver::ConnectionAcceptor:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a810d33a824d81c3b39a8c06926267b1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html#a810d33a824d81c3b39a8c06926267b1c">ConnectionAcceptor</a> (boost::shared_ptr&lt; Hive &gt; hive)</td></tr>
+<tr class="memdesc:a810d33a824d81c3b39a8c06926267b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html" title="A class that handles the accept event for a connection.">ConnectionAcceptor</a>.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#a810d33a824d81c3b39a8c06926267b1c">More...</a><br /></td></tr>
 <tr class="separator:a810d33a824d81c3b39a8c06926267b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3af74464b3f004b71ccd909ce10a861"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html#ad3af74464b3f004b71ccd909ce10a861">~ConnectionAcceptor</a> ()</td></tr>
+<tr class="memdesc:ad3af74464b3f004b71ccd909ce10a861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html" title="A class that handles the accept event for a connection.">ConnectionAcceptor</a>.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#ad3af74464b3f004b71ccd909ce10a861">More...</a><br /></td></tr>
 <tr class="separator:ad3af74464b3f004b71ccd909ce10a861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -121,14 +123,17 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a3e710b67b314392dfae285692dc75a15"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html#a3e710b67b314392dfae285692dc75a15">OnAccept</a> (boost::shared_ptr&lt; Connection &gt; connection, const std::string &amp;addr, uint8_t channel) override</td></tr>
+<tr class="memdesc:a3e710b67b314392dfae285692dc75a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the accept event for a connection.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#a3e710b67b314392dfae285692dc75a15">More...</a><br /></td></tr>
 <tr class="separator:a3e710b67b314392dfae285692dc75a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc60165956565c838f9a544e010efbd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html#afc60165956565c838f9a544e010efbd6">OnTimer</a> (const boost::posix_time::time_duration &amp;delta) override</td></tr>
+<tr class="memdesc:afc60165956565c838f9a544e010efbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the timer event.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#afc60165956565c838f9a544e010efbd6">More...</a><br /></td></tr>
 <tr class="separator:afc60165956565c838f9a544e010efbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32dbf98c39fbabeeede449c5834326f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothReceiver_1_1ConnectionAcceptor.html#a32dbf98c39fbabeeede449c5834326f7">OnError</a> (const boost::system::error_code &amp;error) override</td></tr>
+<tr class="memdesc:a32dbf98c39fbabeeede449c5834326f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles an error that occurs in the program.  <a href="classBluetoothReceiver_1_1ConnectionAcceptor.html#a32dbf98c39fbabeeede449c5834326f7">More...</a><br /></td></tr>
 <tr class="separator:a32dbf98c39fbabeeede449c5834326f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is used to handle the acceptance of incoming connections. It provides methods for accepting connections, handling timer events, and handling errors. </p>
+<div class="textblock"><p>This class inherits from the base class Acceptor and provides functionality to handle the accept event for a connection. It logs the address and channel of the connection and returns true to indicate that the accept event was handled successfully. It also handles timer events and errors by logging them. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a810d33a824d81c3b39a8c06926267b1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a810d33a824d81c3b39a8c06926267b1c">&#9670;&nbsp;</a></span>ConnectionAcceptor()</h2>
@@ -153,6 +158,12 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hive</td><td>A shared pointer to a Hive object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -217,11 +228,10 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Handles the accept event for a connection.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">connection</td><td>A shared pointer to the Connection object. </td></tr>
@@ -253,11 +263,10 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Handle an error that occurs in the program.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">error</td><td>The error code representing the error that occurred. </td></tr>
@@ -290,10 +299,9 @@ Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Handle the timer event.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delta</td><td>the time duration since the last timer event. </td></tr>
+    <tr><td class="paramname">delta</td><td>The time duration since the last timer event. </td></tr>
   </table>
   </dd>
 </dl>
@@ -316,8 +324,9 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="receiver_8hpp_source.html">receiver.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/audio_stream/<a class="el" href="receiver_8hpp_source.html">receiver.hpp</a></li>
+<li>src/audio_stream/<a class="el" href="receiver_8cpp.html">receiver.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

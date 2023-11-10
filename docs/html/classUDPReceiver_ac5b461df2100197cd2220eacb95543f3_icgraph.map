@@ -1,0 +1,4 @@
+<map id="UDPReceiver::stop" name="UDPReceiver::stop">
+<area shape="rect" id="node1" title="Stops the UDP receiver." alt="" coords="264,5,407,32"/>
+<area shape="rect" id="node2" href="$classUDPReceiver.html#a2a1da63c1c780adc54a47c8576ead6b0" title="Destroys the UDPReceiver object." alt="" coords="5,5,216,32"/>
+</map>

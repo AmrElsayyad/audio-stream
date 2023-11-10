@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Audio Stream: AudioPlayer Interactions</title>
+<title>Audio Stream: AudioSpeaker Interactions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,17 +85,17 @@ $(document).ready(function(){initNavTree('group__audio__player__sequence.html','
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AudioPlayer Interactions<div class="ingroups"><a class="el" href="group__sequence__diagrams.html">Sequence Diagrams</a></div></div>  </div>
+<div class="title">AudioSpeaker Interactions<div class="ingroups"><a class="el" href="group__sequence__diagrams.html">Sequence Diagrams</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This sequence diagram illustrates the interaction between the <a class="el" href="classSender.html" title="Abstract base class for sending data.">Sender</a>, <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a>, and <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a> components for audio streaming.  
+<p>This sequence diagram illustrates the interaction between the <a class="el" href="classSender.html" title="Abstract base class for sending data.">Sender</a>, <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a>, and <a class="el" href="classAudioSpeaker.html" title="Class for playing audio.">AudioSpeaker</a> components for audio streaming.  
 </p>
 <div class="mscgraph">
 <img src="msc_inline_mscgraph_1.png" alt="msc_inline_mscgraph_1" border="0"/>
 </div>
 <p><br  />
- The <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> registers the handle_receive_cb function of the <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a>. The <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a> opens an audio stream and starts the <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a>. The <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> then begins receiving audio data from the <a class="el" href="classSender.html" title="Abstract base class for sending data.">Sender</a>. Upon receiving the data, the <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> calls handle_receive_cb, enabling the <a class="el" href="classAudioPlayer.html" title="Class for playing audio.">AudioPlayer</a> to process the received audio data and play it through the speakers by writing it to the audio stream. </p>
+ The <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> registers the handle_receive_cb function of the <a class="el" href="classAudioSpeaker.html" title="Class for playing audio.">AudioSpeaker</a>. The <a class="el" href="classAudioSpeaker.html" title="Class for playing audio.">AudioSpeaker</a> opens an audio stream and starts the <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a>. The <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> then begins receiving audio data from the <a class="el" href="classSender.html" title="Abstract base class for sending data.">Sender</a>. Upon receiving the data, the <a class="el" href="classReceiver.html" title="Abstract base class for receiving data.">Receiver</a> calls handle_receive_cb, enabling the <a class="el" href="classAudioSpeaker.html" title="Class for playing audio.">AudioSpeaker</a> to process the received audio data and play it through the speakers by writing it to the audio stream. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

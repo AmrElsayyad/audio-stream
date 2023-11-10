@@ -1,0 +1,4 @@
+<map id="BluetoothSender::BluetoothConnection" name="BluetoothSender::BluetoothConnection">
+<area shape="rect" id="node1" title="A private nested class that extends the Connection class and handles Bluetooth connection events." alt="" coords="5,131,207,325"/>
+<area shape="rect" id="node2" title=" " alt="" coords="59,5,153,83"/>
+</map>

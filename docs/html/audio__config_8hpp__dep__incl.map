@@ -1,8 +1,8 @@
-<map id="src/audio_config.hpp" name="src/audio_config.hpp">
-<area shape="rect" id="node1" title="Configuration constants and typedefs for audio processing." alt="" coords="96,5,251,32"/>
-<area shape="rect" id="node2" href="$receiver_8hpp.html" title="The declarations of the Receiver interface and its implementations." alt="" coords="39,80,164,107"/>
-<area shape="rect" id="node6" href="$sender_8hpp.html" title="The declarations of the Sender interface and its implementations." alt="" coords="189,80,305,107"/>
-<area shape="rect" id="node3" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,155,261,181"/>
-<area shape="rect" id="node4" href="$audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,229,179,256"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,229,309,256"/>
+<map id="src/audio_stream/audio_config.hpp" name="src/audio_stream/audio_config.hpp">
+<area shape="rect" id="node1" title="Configuration constants and typedefs for audio processing." alt="" coords="307,5,481,47"/>
+<area shape="rect" id="node2" href="$audio__stream_8hpp.html" title="The declarations of the AudioSpeaker and AudioRecorder classes for audio streaming." alt="" coords="87,95,261,136"/>
+<area shape="rect" id="node5" href="$receiver_8cpp.html" title="The definitions of the Receiver interface and its implementations." alt="" coords="285,102,503,129"/>
+<area shape="rect" id="node6" href="$sender_8cpp.html" title="The definitions of the Sender interface and its implementations." alt="" coords="527,102,735,129"/>
+<area shape="rect" id="node3" href="$audio__stream_8cpp.html" title="Implementation of the AudioSpeaker and AudioRecorder classes for audio streaming." alt="" coords="5,184,180,225"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="204,191,309,218"/>
 </map>

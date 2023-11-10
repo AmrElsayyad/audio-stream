@@ -1,5 +1,5 @@
 <map id="UDPReceiver::handle_receive_wrapper" name="UDPReceiver::handle_receive_wrapper">
 <area shape="rect" id="node1" title="Wrapper function for handling received data." alt="" coords="389,5,548,47"/>
 <area shape="rect" id="node2" href="$classUDPReceiver.html#a5635a4e54a4662a3354c45686dc65a46" title="Waits for data to be received." alt="" coords="199,13,341,39"/>
-<area shape="rect" id="node3" href="$classUDPReceiver.html#ab15ce154495296815cb9491b5e60c0ed" title="Starts the UDP receiver." alt="" coords="5,13,151,39"/>
+<area shape="rect" id="node3" href="$classUDPReceiver.html#a75860d863f028adbef67405f8b522afa" title="Starts the UDP receiver." alt="" coords="5,13,151,39"/>
 </map>

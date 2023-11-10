@@ -98,13 +98,13 @@ $(document).ready(function(){initNavTree('classAudioRecorder.html',''); initResi
 <p>Class for recording audio.  
 </p>
 
-<p><code>#include &lt;<a class="el" href="audio__streamer_8hpp_source.html">audio_streamer.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="audio__stream_8hpp_source.html">audio_stream.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for AudioRecorder:</div>
 <div class="dyncontent">
 <div class="center"><img src="classAudioRecorder__coll__graph.png" border="0" usemap="#aAudioRecorder_coll__map" alt="Collaboration graph"/></div>
 <map name="aAudioRecorder_coll__map" id="aAudioRecorder_coll__map">
-<area shape="rect" title="Class for recording audio." alt="" coords="5,5,159,185"/>
+<area shape="rect" title="Class for recording audio." alt="" coords="5,5,159,200"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -116,9 +116,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a45ada3c8bf0ba2ef4455929f92b8b054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a838b5466a73853293f043d0a05d03dd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAudioRecorder.html">AudioRecorder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#a838b5466a73853293f043d0a05d03dd5">operator=</a> (const <a class="el" href="classAudioRecorder.html">AudioRecorder</a> &amp;)=delete</td></tr>
 <tr class="separator:a838b5466a73853293f043d0a05d03dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e77d635a544f031f26b9f8a41981ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#a05e77d635a544f031f26b9f8a41981ea">AudioRecorder</a> (std::unique_ptr&lt; <a class="el" href="classSender.html">Sender</a> &gt; sender)</td></tr>
-<tr class="memdesc:a05e77d635a544f031f26b9f8a41981ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classAudioRecorder.html" title="Class for recording audio.">AudioRecorder</a> object.  <a href="classAudioRecorder.html#a05e77d635a544f031f26b9f8a41981ea">More...</a><br /></td></tr>
-<tr class="separator:a05e77d635a544f031f26b9f8a41981ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b71b62ce7312dbd245448f4299c681"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAudioRecorder.html">AudioRecorder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#a70b71b62ce7312dbd245448f4299c681">operator=</a> (const <a class="el" href="classAudioRecorder.html">AudioRecorder</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a70b71b62ce7312dbd245448f4299c681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadabe368d4c809474d073c4745fb72e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#aadabe368d4c809474d073c4745fb72e2">AudioRecorder</a> (boost::shared_ptr&lt; <a class="el" href="classSender.html">Sender</a> &gt; sender)</td></tr>
+<tr class="memdesc:aadabe368d4c809474d073c4745fb72e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classAudioRecorder.html" title="Class for recording audio.">AudioRecorder</a> object.  <a href="classAudioRecorder.html#aadabe368d4c809474d073c4745fb72e2">More...</a><br /></td></tr>
+<tr class="separator:aadabe368d4c809474d073c4745fb72e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5a2d69da1c068d8aab68365e5b9208a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#ad5a2d69da1c068d8aab68365e5b9208a">~AudioRecorder</a> ()</td></tr>
 <tr class="memdesc:ad5a2d69da1c068d8aab68365e5b9208a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classAudioRecorder.html" title="Class for recording audio.">AudioRecorder</a> object.  <a href="classAudioRecorder.html#ad5a2d69da1c068d8aab68365e5b9208a">More...</a><br /></td></tr>
 <tr class="separator:ad5a2d69da1c068d8aab68365e5b9208a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,8 +139,8 @@ Static Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:adb60cdc1a2cccaabe8ceda337b369c38"><td class="memItemLeft" align="right" valign="top">const std::unique_ptr&lt; <a class="el" href="classSender.html">Sender</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#adb60cdc1a2cccaabe8ceda337b369c38">sender_</a></td></tr>
-<tr class="separator:adb60cdc1a2cccaabe8ceda337b369c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa094f7c45005dc1bc12dec1609b15948"><td class="memItemLeft" align="right" valign="top">const boost::shared_ptr&lt; <a class="el" href="classSender.html">Sender</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#aa094f7c45005dc1bc12dec1609b15948">sender_</a></td></tr>
+<tr class="separator:aa094f7c45005dc1bc12dec1609b15948"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8bfcd20ba0052381859a2fdd0166276"><td class="memItemLeft" align="right" valign="top">PaStream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioRecorder.html#af8bfcd20ba0052381859a2fdd0166276">stream_</a></td></tr>
 <tr class="separator:af8bfcd20ba0052381859a2fdd0166276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -195,8 +197,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a05e77d635a544f031f26b9f8a41981ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05e77d635a544f031f26b9f8a41981ea">&#9670;&nbsp;</a></span>AudioRecorder() <span class="overload">[3/3]</span></h2>
+<a id="aadabe368d4c809474d073c4745fb72e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadabe368d4c809474d073c4745fb72e2">&#9670;&nbsp;</a></span>AudioRecorder() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +209,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">AudioRecorder::AudioRecorder </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classSender.html">Sender</a> &gt;&#160;</td>
+          <td class="paramtype">boost::shared_ptr&lt; <a class="el" href="classSender.html">Sender</a> &gt;&#160;</td>
           <td class="paramname"><em>sender</em></td><td>)</td>
           <td></td>
         </tr>
@@ -220,7 +222,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sender</td><td>A unique_ptr to the sender object for audio streaming. </td></tr>
+    <tr><td class="paramname">sender</td><td>The sender object for audio streaming. </td></tr>
   </table>
   </dd>
 </dl>
@@ -245,8 +247,34 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a70b71b62ce7312dbd245448f4299c681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b71b62ce7312dbd245448f4299c681">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAudioRecorder.html">AudioRecorder</a>&amp; AudioRecorder::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classAudioRecorder.html">AudioRecorder</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a838b5466a73853293f043d0a05d03dd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a838b5466a73853293f043d0a05d03dd5">&#9670;&nbsp;</a></span>operator=()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a838b5466a73853293f043d0a05d03dd5">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,8 +422,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="adb60cdc1a2cccaabe8ceda337b369c38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb60cdc1a2cccaabe8ceda337b369c38">&#9670;&nbsp;</a></span>sender_</h2>
+<a id="aa094f7c45005dc1bc12dec1609b15948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa094f7c45005dc1bc12dec1609b15948">&#9670;&nbsp;</a></span>sender_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +432,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::unique_ptr&lt;<a class="el" href="classSender.html">Sender</a>&gt; AudioRecorder::sender_</td>
+          <td class="memname">const boost::shared_ptr&lt;<a class="el" href="classSender.html">Sender</a>&gt; AudioRecorder::sender_</td>
         </tr>
       </table>
   </td>
@@ -441,8 +469,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="audio__streamer_8hpp_source.html">audio_streamer.hpp</a></li>
-<li>src/<a class="el" href="audio__streamer_8cpp.html">audio_streamer.cpp</a></li>
+<li>src/audio_stream/<a class="el" href="audio__stream_8hpp_source.html">audio_stream.hpp</a></li>
+<li>src/audio_stream/<a class="el" href="audio__stream_8cpp.html">audio_stream.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

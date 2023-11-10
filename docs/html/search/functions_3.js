@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get_5fport_93',['get_port',['../classUDPReceiver.html#ab574301a98ed5bd29914c68f105359af',1,'UDPReceiver::get_port()'],['../classBluetoothReceiver.html#a81af07ea1f05960a3edb0612bb1ea14b',1,'BluetoothReceiver::get_port()']]],
-  ['get_5fremote_5fendpoint_94',['get_remote_endpoint',['../classUDPReceiver.html#aa77feefb77d284b8b6555cf9876a1f38',1,'UDPReceiver']]]
+  ['get_5fport_101',['get_port',['../classUDPReceiver.html#a957dab9772fe414f30183551b420fd08',1,'UDPReceiver::get_port()'],['../classBluetoothReceiver.html#a0c4b9595c40a943e037b4d43c2b1fcbd',1,'BluetoothReceiver::get_port()']]],
+  ['get_5fremote_5fendpoint_102',['get_remote_endpoint',['../classUDPReceiver.html#a72e4df8c80f086dfb4b05e5e98c20685',1,'UDPReceiver']]]
 ];
