@@ -30,7 +30,7 @@ var NAVTREE =
     [ "Usage", "index.html#autotoc_md3", null ],
     [ "Contributing", "index.html#autotoc_md4", null ],
     [ "Support", "index.html#autotoc_md5", null ],
-    [ "Topics", "topics.html", "topics" ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

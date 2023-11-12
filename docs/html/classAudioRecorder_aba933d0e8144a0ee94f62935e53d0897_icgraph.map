@@ -1,5 +1,4 @@
 <map id="AudioRecorder::send" name="AudioRecorder::send">
-<area shape="rect" id="Node000001" title="Sends a message using the sender object." alt="" coords="276,5,432,31"/>
-<area shape="rect" id="Node000002" href="$classAudioRecorder.html#a6a07843296987cb59eaccc4ade0df565" title="Callback function for recording audio." alt="" coords="5,5,228,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,21,228,21,228,15,262,15"/>
+<area shape="rect" id="node1" title="Sends a message using the sender object." alt="" coords="276,5,432,32"/>
+<area shape="rect" id="node2" href="$classAudioRecorder.html#a6a07843296987cb59eaccc4ade0df565" title="Callback function for recording audio." alt="" coords="5,5,228,32"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="UDPReceiver::UDPReceiver" name="UDPReceiver::UDPReceiver">
-<area shape="rect" id="Node000001" title="Constructs a UDPReceiver object." alt="" coords="5,5,205,31"/>
-<area shape="rect" id="Node000002" href="$classUDPReceiver.html#a1c7be3903c5eaf8e76a0c37004022e1e" title=" " alt="" coords="253,5,452,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,15,239,15,239,21,205,21"/>
+<area shape="rect" id="node1" title="Constructs a UDPReceiver object." alt="" coords="5,5,205,32"/>
+<area shape="rect" id="node2" href="$classUDPReceiver.html#a1c7be3903c5eaf8e76a0c37004022e1e" title=" " alt="" coords="253,5,452,32"/>
 </map>

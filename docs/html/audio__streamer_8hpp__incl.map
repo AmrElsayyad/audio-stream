@@ -1,19 +1,11 @@
 <map id="src/audio_streamer.hpp" name="src/audio_streamer.hpp">
-<area shape="rect" id="Node000001" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="162,5,337,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="149,79,229,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,33,210,70,206,66,237,29"/>
-<area shape="rect" id="Node000003" href="$connector_8hpp.html" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="254,79,367,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,29,294,66,290,70,257,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,123,177"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="272,107,118,151,116,146,270,101"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="147,152,298,177"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="298,106,249,145,246,141,295,102"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="323,152,475,177"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="326,102,375,141,372,145,323,106"/>
-<area shape="rect" id="Node000007" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="499,152,631,177"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="352,101,512,146,511,151,351,107"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="485,225,544,251"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="559,179,533,216,529,213,555,176"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="568,225,664,251"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="576,176,602,213,598,216,572,179"/>
+<area shape="rect" id="node1" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="162,5,337,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="149,80,229,107"/>
+<area shape="rect" id="node3" href="$connector_8hpp.html" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="254,80,367,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,155,123,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="147,155,298,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="323,155,475,181"/>
+<area shape="rect" id="node7" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="499,155,631,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="485,229,544,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="568,229,664,256"/>
 </map>

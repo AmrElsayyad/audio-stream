@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['get_5fport_0',['get_port',['../classUDPReceiver.html#a957dab9772fe414f30183551b420fd08',1,'UDPReceiver']]],
-  ['get_5fremote_5fendpoint_1',['get_remote_endpoint',['../classUDPReceiver.html#a72e4df8c80f086dfb4b05e5e98c20685',1,'UDPReceiver']]]
+  ['get_5fport_66',['get_port',['../classUDPReceiver.html#ab574301a98ed5bd29914c68f105359af',1,'UDPReceiver']]],
+  ['get_5fremote_5fendpoint_67',['get_remote_endpoint',['../classUDPReceiver.html#aa77feefb77d284b8b6555cf9876a1f38',1,'UDPReceiver']]]
 ];

@@ -1,9 +1,6 @@
 <map id="src/connector.hpp" name="src/connector.hpp">
-<area shape="rect" id="Node000001" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="105,5,241,31"/>
-<area shape="rect" id="Node000002" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,79,261,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,44,176,79,171,79,171,44"/>
-<area shape="rect" id="Node000003" href="$audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,152,179,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,115,107,154,104,150,148,111"/>
-<area shape="rect" id="Node000004" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,152,309,177"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,111,244,150,241,154,195,115"/>
+<area shape="rect" id="node1" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="105,5,241,32"/>
+<area shape="rect" id="node2" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,80,261,107"/>
+<area shape="rect" id="node3" href="$audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,155,179,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,155,309,181"/>
 </map>

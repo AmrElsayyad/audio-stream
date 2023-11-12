@@ -1,11 +1,7 @@
 <map id="src/audio_config.hpp" name="src/audio_config.hpp">
-<area shape="rect" id="Node000001" title="Configuration constants and typedefs for audio processing." alt="" coords="96,5,251,31"/>
-<area shape="rect" id="Node000002" href="$connector_8hpp.html" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="105,79,241,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,44,176,79,171,79,171,44"/>
-<area shape="rect" id="Node000003" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,152,261,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,118,176,152,171,152,171,118"/>
-<area shape="rect" id="Node000004" href="$audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,225,179,251"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="152,188,107,227,104,223,148,184"/>
-<area shape="rect" id="Node000005" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,225,309,251"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="199,184,244,223,241,227,195,188"/>
+<area shape="rect" id="node1" title="Configuration constants and typedefs for audio processing." alt="" coords="96,5,251,32"/>
+<area shape="rect" id="node2" href="$connector_8hpp.html" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="105,80,241,107"/>
+<area shape="rect" id="node3" href="$audio__streamer_8hpp.html" title="The declarations of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="86,155,261,181"/>
+<area shape="rect" id="node4" href="$audio__streamer_8cpp.html" title="Implementation of the AudioPlayer and AudioRecorder classes for audio streaming." alt="" coords="5,229,179,256"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="The main entry point of the program and command&#45;line options for starting as a player or recorder." alt="" coords="203,229,309,256"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="UDPReceiver" name="UDPReceiver">
-<area shape="rect" id="Node000001" title="Class for receiving data over UDP." alt="" coords="5,159,203,544"/>
-<area shape="rect" id="Node000002" href="$classReceiver.html" title="Abstract base class for receiving data." alt="" coords="25,5,183,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,124,107,159,101,159,101,124"/>
+<area shape="rect" id="node1" title="Class for receiving data over UDP." alt="" coords="5,160,205,472"/>
+<area shape="rect" id="node2" href="$classReceiver.html" title="Abstract base class for receiving data." alt="" coords="23,5,188,112"/>
 </map>

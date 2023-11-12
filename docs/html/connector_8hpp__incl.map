@@ -1,15 +1,9 @@
 <map id="src/connector.hpp" name="src/connector.hpp">
-<area shape="rect" id="Node000001" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="243,5,379,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,123,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,33,118,77,116,72,270,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="147,79,298,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="298,33,249,72,246,68,295,29"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="323,79,475,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="326,29,375,68,372,72,323,33"/>
-<area shape="rect" id="Node000005" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="499,79,631,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="352,28,512,72,511,78,351,33"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="485,152,544,177"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="559,106,533,142,529,139,555,103"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="568,152,664,177"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="576,103,602,139,598,142,572,106"/>
+<area shape="rect" id="node1" title="The declarations of the Sender, UDPSender, Receiver, and UDPReceiver classes for network communicatio..." alt="" coords="243,5,379,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="147,80,298,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="323,80,475,107"/>
+<area shape="rect" id="node5" href="$audio__config_8hpp.html" title="Configuration constants and typedefs for audio processing." alt="" coords="499,80,631,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="485,155,544,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="568,155,664,181"/>
 </map>

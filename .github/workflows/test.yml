@@ -28,7 +28,7 @@ jobs:
         if: runner.os == 'Windows'
         run: .\build.bat
 
-      - name: Build on Linux/MacOS
+      - name: Build on Unix-based systems
         if: runner.os != 'Windows'
         run: ./build.sh
 

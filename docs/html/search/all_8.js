@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]]
+  ['num_5fchannels_22',['num_channels',['../audio__config_8hpp.html#aed273f5d1f9cc4a01eac0f32a36ab755',1,'audio_config.hpp']]]
 ];
