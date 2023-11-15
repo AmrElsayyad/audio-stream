@@ -109,7 +109,7 @@ BluetoothSender::~BluetoothSender() {
  * @param msg The message to be sent.
  */
 void BluetoothSender::send(const std::string& msg) {
-    binding_->Write(reinterpret_cast<const uint8_t*>(msg.c_str()), msg.size());
+    binding_->Write(msg.c_str(), msg.size());
 }
 
 /**
