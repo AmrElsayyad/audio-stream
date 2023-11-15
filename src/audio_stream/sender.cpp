@@ -81,14 +81,23 @@ BluetoothSender::BluetoothSender(const std::string& mac_address)
 
     try {
         device_inq_ = std::unique_ptr<DeviceINQ>(DeviceINQ::Create());
-        binding_ =
-            std::unique_ptr<BTSerialPortBinding>(BTSerialPortBinding::Create(
-                mac_address, device_inq_->SdpSearch(
-                                 mac_address, "GENERIC_AUDIO_PROFILE_ID")));
+        channel_ =
+            device_inq_->SdpSearch(mac_address, "GENERIC_AUDIO_PROFILE_ID");
+    } catch (const BluetoothException& e) {
+        throw std::runtime_error("Cannot get channel for " + mac_address_ +
+                                 "\n\t" + e.what() + "\n");
+    }
+    BOOST_LOG_TRIVIAL(info)
+        << "Channel " << channel_ << " found for " << mac_address_;
+
+    try {
+        binding_ = std::unique_ptr<BTSerialPortBinding>(
+            BTSerialPortBinding::Create(mac_address, channel_));
         binding_->Connect();
     } catch (const BluetoothException& e) {
-        throw std::runtime_error("Cannot connect to " + mac_address_ + "\n\t" +
-                                 e.what() + "\n");
+        throw std::runtime_error("Cannot connect to " + mac_address_ +
+                                 " on channel " + std::to_string(channel_) +
+                                 "\n\t" + e.what() + "\n");
     }
 
     BOOST_LOG_TRIVIAL(info)

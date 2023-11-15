@@ -122,6 +122,7 @@ class BluetoothSender : public Sender {
     static bool is_valid_mac(const std::string& mac_address);
 
     const std::string mac_address_; /**< The MAC address to send the data to. */
+    int channel_; /**< The channel to send the data on. */
     std::unique_ptr<DeviceINQ> device_inq_; /**< The device inquirer. */
     std::unique_ptr<BTSerialPortBinding>
         binding_; /**< The serial port binding. */
