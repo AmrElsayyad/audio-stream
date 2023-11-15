@@ -72,7 +72,7 @@ AudioSpeaker::~AudioSpeaker() {
  * @param buf The buffer containing the received audio data.
  * @param recv_bytes The number of received bytes.
  */
-void AudioSpeaker::handle_receive_cb(uint8_t buf[], size_t recv_bytes) {
+void AudioSpeaker::handle_receive_cb(char buf[], size_t recv_bytes) {
     if (!stream_) {
         return;
     }

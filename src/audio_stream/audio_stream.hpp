@@ -74,7 +74,7 @@ class AudioSpeaker {
      * @param buf The buffer containing the received audio data.
      * @param recv_bytes The number of received bytes.
      */
-    static void handle_receive_cb(uint8_t buf[], size_t recv_bytes);
+    static void handle_receive_cb(char buf[], size_t recv_bytes);
 
   private:
     const std::shared_ptr<Receiver>

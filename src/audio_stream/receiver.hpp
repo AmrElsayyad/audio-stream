@@ -30,7 +30,7 @@ class Receiver {
      * @param handle_receive_cb The callback function for handling received
      * data.
      */
-    explicit Receiver(std::function<void(uint8_t buffer[], size_t recv_bytes)>
+    explicit Receiver(std::function<void(char buffer[], size_t recv_bytes)>
                           handle_receive_cb) {
         handle_receive_cb_ = handle_receive_cb;
     }
@@ -46,7 +46,7 @@ class Receiver {
     virtual void stop() = 0;
 
   protected:
-    std::function<void(uint8_t buffer[], size_t recv_bytes)>
+    std::function<void(char buffer[], size_t recv_bytes)>
         handle_receive_cb_; /**< The callback function for handling received
                                data. */
 };
@@ -69,7 +69,7 @@ class UDPReceiver : public Receiver {
      * @param handle_receive_cb Callback function for handling received data.
      */
     explicit UDPReceiver(
-        int port, std::function<void(uint8_t buffer[], size_t recv_bytes)>
+        int port, std::function<void(char buffer[], size_t recv_bytes)>
                       handle_receive_cb);
 
     /**
@@ -126,7 +126,7 @@ class UDPReceiver : public Receiver {
         io_service_; /**< The IO service for asynchronous operations. */
     boost::asio::ip::udp::socket
         socket_; /**< The UDP socket for receiving data. */
-    std::array<uint8_t, buffer_size>
+    std::array<char, buffer_size>
         recv_buf_; /**< The receive buffer for incoming data. */
     boost::asio::ip::udp::endpoint remote_endpoint_; /**< The remote endpoint
                                            from which data is received. */
@@ -151,7 +151,7 @@ class BluetoothReceiver : public Receiver {
      * @param handle_receive_cb Callback function for handling received data.
      */
     explicit BluetoothReceiver(
-        int port, std::function<void(uint8_t buffer[], size_t recv_bytes)>
+        int port, std::function<void(char buffer[], size_t recv_bytes)>
                       handle_receive_cb);
 
     /**

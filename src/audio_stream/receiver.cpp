@@ -15,7 +15,7 @@
  */
 UDPReceiver::UDPReceiver(
     int port,
-    std::function<void(uint8_t buffer[], size_t recv_bytes)> handle_receive_cb)
+    std::function<void(char buffer[], size_t recv_bytes)> handle_receive_cb)
     : Receiver(handle_receive_cb),
       port_(port),
       io_service_(boost::asio::io_service()),
@@ -121,7 +121,7 @@ inline void UDPReceiver::wait() {
  */
 BluetoothReceiver::BluetoothReceiver(
     int port,
-    std::function<void(uint8_t buffer[], size_t recv_bytes)> handle_receive_cb)
+    std::function<void(char buffer[], size_t recv_bytes)> handle_receive_cb)
     : Receiver(handle_receive_cb), port_(port) {
     try {
         device_inq_ = std::unique_ptr<DeviceINQ>(DeviceINQ::Create());
@@ -155,7 +155,7 @@ inline void BluetoothReceiver::start() {
     thread_ = std::thread([&] {
         while (polling_) {
             if (binding_->IsDataAvailable()) {
-                uint8_t buffer[buffer_size];
+                char buffer[buffer_size];
                 size_t recv_bytes = binding_->Read(buffer, buffer_size);
                 handle_receive_cb_(buffer, recv_bytes);
             }

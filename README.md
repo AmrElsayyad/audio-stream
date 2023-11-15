@@ -16,6 +16,12 @@ This project is designed for audio streaming functionality. It provides the abil
 
 - [MinGW](https://www.mingw-w64.org/)
 
+#### Apt-based Linux distros
+
+- libbluetooth-dev
+- autoconf
+- libtool
+
 ### Build
 
 Run `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
