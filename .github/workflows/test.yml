@@ -30,7 +30,7 @@ jobs:
 
       - name: Install prerequisites on Linux
         if: runner.os == 'Linux'
-        run: apt install -y libbluetooth-dev autoconf libtool
+        run: sudo apt install -y libbluetooth-dev autoconf libtool
 
       - name: Build on Unix-based systems
         if: runner.os != 'Windows'
