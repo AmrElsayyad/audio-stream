@@ -22,7 +22,7 @@ TEST(UDPTest, test_send_and_receive) {
     string received_message;
 
     UDPReceiver receiver =
-        UDPReceiver(12345, [&](uint8_t buf[], size_t recv_bytes) {
+        UDPReceiver(12345, [&](char buf[], size_t recv_bytes) {
             for (size_t i = 0; i < recv_bytes; ++i) {
                 received_message += buf[i];
             }
