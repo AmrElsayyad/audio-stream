@@ -129,7 +129,7 @@ BluetoothReceiver::BluetoothReceiver(
             std::unique_ptr<BTSerialPortBinding>(BTSerialPortBinding::Create(
                 device_inq_->GetLocalDevice().address, port_));
     } catch (const BluetoothException& e) {
-        throw std::runtime_error("Cannot bind to local device:\n\t" +
+        throw std::runtime_error("Cannot bind to local device\n\t" +
                                  std::string(e.what()) + "\n");
     }
     try {

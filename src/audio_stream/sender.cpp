@@ -87,7 +87,7 @@ BluetoothSender::BluetoothSender(const std::string& mac_address)
                                  mac_address, "GENERIC_AUDIO_PROFILE_ID")));
         binding_->Connect();
     } catch (const BluetoothException& e) {
-        throw std::runtime_error("Cannot connect to " + mac_address_ + ":\n\t" +
+        throw std::runtime_error("Cannot connect to " + mac_address_ + "\n\t" +
                                  e.what() + "\n");
     }
 

@@ -11,6 +11,14 @@
             "program": "build/src/AudioStream",
             "programArgs": "-s 13",
             "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "Launch recorder to 9C:DA:3E:67:C7:20 (gdb)",
+            "type": "by-gdb",
+            "request": "launch",
+            "program": "build/src/AudioStream",
+            "programArgs": "-r 9C:DA:3E:67:C7:20",
+            "cwd": "${workspaceRoot}"
         }
     ]
 }
