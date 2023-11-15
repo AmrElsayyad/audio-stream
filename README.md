@@ -4,15 +4,29 @@
 
 This project is designed for audio streaming functionality. It provides the ability to record, send, receive, and play audio.
 
-## Getting Started
+## Build From Source
 
-To get started with this project:
+### Requirements
 
-- Clone the repository to your local machine.
-- You need to have `CMake >= 3.21` installed, and `MinGW` on Windows.
-- Build the project using `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
-- Optionally, you can run unit tests using `./build/test/UnitTests`.
-- Run `./build/src/AudioStream` to start the audio streaming application.
+#### General Requirements
+
+- [CMake](https://cmake.org/) >= 3.21
+
+#### Windows
+
+- [MinGW](https://www.mingw-w64.org/)
+
+### Build
+
+Run `./build.sh` on Unix-based systems, or `.\build.bat` on Windows.
+
+### Test
+
+Run `./build/test/UnitTests` to run the unit tests, or use `ctest` in the build directory.
+
+### Usage
+
+Run `./build/src/AudioStream` to start the audio streaming application.
 
 ## Code Overview
 
@@ -25,10 +39,10 @@ src/main.cpp: This file contains the main function. It initializes the AudioPlay
 To use the audio streaming application, follow these steps:
 
 - You can show the help message by running `./AudioStream -h`.
-- If you want to start as a player listening for recorders, use the `-p` or `--player` option followed by the port number.
-  For example: `./AudioStream -p 1234`
-- If you want to start as a recorder sending to a player, use the `-r` or `--recorder` option followed by the IP address and port number.
-  For example: `./AudioStream -r 192.168.0.1:1234`
+- If you want to start as a player listening for recorders, use the `-p [ --player ]` option followed by the port number.
+  For example: `./AudioStream -p 13`
+- If you want to start as a recorder sending to a player, use the `-r [ --recorder ]` option followed by the MAC address of the player.
+  For example: `./AudioStream -r 94:39:E5:8E:5A:A2`
 - Enter 'q' to quit the application.
 
 ## Contributing

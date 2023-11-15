@@ -1,3 +1,7 @@
 [submodule "vcpkg"]
 	path = vcpkg
 	url = https://github.com/microsoft/vcpkg.git
+[submodule "bluetooth-serial-port"]
+	path = bluetooth-serial-port
+	url = https://github.com/AmrElsayyad/bluetooth-serial-port
+	branch = dev

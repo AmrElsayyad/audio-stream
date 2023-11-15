@@ -1,26 +1,30 @@
 /**
- * @file audio_streamer.cpp
- * @brief Implementation of the AudioPlayer and AudioRecorder classes for audio
+ * @file audio_stream.cpp
+ * @brief Implementation of the AudioSpeaker and AudioRecorder classes for audio
  * streaming.
  */
 
-#include "audio_streamer.hpp"
+#include "audio_stream.hpp"
+
+#include <boost/log/trivial.hpp>
+#include <iostream>
 
 using std::array;
 using std::cerr;
+using std::cout;
 using std::endl;
 using std::runtime_error;
+using std::shared_ptr;
 using std::stringstream;
-using std::unique_ptr;
 
-PaStream* AudioPlayer::stream_{nullptr};
+PaStream* AudioSpeaker::stream_{nullptr};
 
 /**
- * @brief Constructs an AudioPlayer object.
- * @param receiver A unique_ptr to the receiver object for audio streaming.
+ * @brief Constructs an AudioSpeaker object.
+ * @param receiver The receiver object for audio streaming.
  */
-AudioPlayer::AudioPlayer(unique_ptr<Receiver>(receiver))
-    : receiver_(std::move(receiver)) {
+AudioSpeaker::AudioSpeaker(shared_ptr<Receiver> receiver)
+    : receiver_(receiver) {
     // Open the default audio stream
     PaError err =
         Pa_OpenDefaultStream(&stream_, 0, num_channels, sample_format,
@@ -38,13 +42,16 @@ AudioPlayer::AudioPlayer(unique_ptr<Receiver>(receiver))
     // Start the receiver
     receiver_->start();
 
-    BOOST_LOG_TRIVIAL(info) << "AudioPlayer started";
+    // Clear the screen
+    cout << "\033[2J\033[1;1H";
+
+    BOOST_LOG_TRIVIAL(info) << "AudioSpeaker started";
 }
 
 /**
- * @brief Destroys the AudioPlayer object.
+ * @brief Destroys the AudioSpeaker object.
  */
-AudioPlayer::~AudioPlayer() {
+AudioSpeaker::~AudioSpeaker() {
     // Stop the receiver
     receiver_->stop();
 
@@ -57,7 +64,7 @@ AudioPlayer::~AudioPlayer() {
         stream_ = nullptr;
     }
 
-    BOOST_LOG_TRIVIAL(info) << "AudioPlayer stopped";
+    BOOST_LOG_TRIVIAL(info) << "AudioSpeaker stopped";
 }
 
 /**
@@ -65,8 +72,7 @@ AudioPlayer::~AudioPlayer() {
  * @param buf The buffer containing the received audio data.
  * @param recv_bytes The number of received bytes.
  */
-void AudioPlayer::handle_receive_cb(array<char, BUFFER_SIZE> buf,
-                                    size_t recv_bytes) {
+void AudioSpeaker::handle_receive_cb(uint8_t buf[], size_t recv_bytes) {
     if (!stream_) {
         return;
     }
@@ -76,8 +82,8 @@ void AudioPlayer::handle_receive_cb(array<char, BUFFER_SIZE> buf,
     unsigned long i, j;
 
     // Process the received audio data
-    for (const auto& c : buf) {
-        ss << c;
+    for (i = 0; i < recv_bytes; ++i) {
+        ss << buf[i];
     }
 
     for (i = 0; i < frames_per_buffer; ++i) {
@@ -92,10 +98,9 @@ void AudioPlayer::handle_receive_cb(array<char, BUFFER_SIZE> buf,
 
 /**
  * @brief Constructs an AudioRecorder object.
- * @param sender A unique_ptr to the sender object for audio streaming.
+ * @param sender The sender object for audio streaming.
  */
-AudioRecorder::AudioRecorder(unique_ptr<Sender> sender)
-    : sender_(std::move(sender)) {
+AudioRecorder::AudioRecorder(shared_ptr<Sender> sender) : sender_(sender) {
     // Open the default audio stream
     PaError err = Pa_OpenDefaultStream(&stream_, num_channels, 0, sample_format,
                                        sample_rate, frames_per_buffer,
@@ -109,6 +114,9 @@ AudioRecorder::AudioRecorder(unique_ptr<Sender> sender)
     if (err != paNoError) {
         throw runtime_error(Pa_GetErrorText(err));
     }
+
+    // Clear the screen
+    cout << "\033[2J\033[1;1H";
 
     BOOST_LOG_TRIVIAL(info) << "AudioRecorder started";
 }
@@ -133,7 +141,7 @@ AudioRecorder::~AudioRecorder() {
  * @brief Sends a message using the sender object.
  * @param msg The message to be sent.
  */
-inline void AudioRecorder::send(const std::string_view& msg) const {
+inline void AudioRecorder::send(const std::string& msg) const {
     sender_->send(msg);
 }
 

@@ -1,9 +1,9 @@
 /**
- * @file audio_streamer.hpp
- * @brief The declarations of the AudioPlayer and AudioRecorder classes for
+ * @file audio_stream.hpp
+ * @brief The declarations of the AudioSpeaker and AudioRecorder classes for
  * audio streaming.
  *
- * The AudioPlayer class provides functionality for playing audio, while the
+ * The AudioSpeaker class provides functionality for playing audio, while the
  * AudioRecorder class allows for recording audio. Both classes utilize the
  * Receiver and Sender objects for audio streaming.
  */
@@ -11,9 +11,9 @@
 #ifndef AUDIO_STREAMER_HPP
 #define AUDIO_STREAMER_HPP
 
-#include <iostream>
-
-#include "connector.hpp"
+#include "audio_config.hpp"
+#include "receiver.hpp"
+#include "sender.hpp"
 
 /**
  * @defgroup sequence_diagrams Sequence Diagrams
@@ -23,60 +23,61 @@
 /**
  * @ingroup sequence_diagrams
  *
- * @defgroup audio_player_sequence AudioPlayer Interactions
+ * @defgroup audio_player_sequence AudioSpeaker Interactions
  * @brief This sequence diagram illustrates the interaction between the Sender,
- * Receiver, and AudioPlayer components for audio streaming.
+ * Receiver, and AudioSpeaker components for audio streaming.
  *
  * @msc
- * Sender, Receiver, AudioPlayer;
+ * Sender, Receiver, AudioSpeaker;
  *
  * Receiver->Receiver [label="register handle_receive_cb"];
- * AudioPlayer->AudioPlayer [label="open audio stream"];
- * AudioPlayer->Receiver [label="start"];
+ * AudioSpeaker->AudioSpeaker [label="open audio stream"];
+ * AudioSpeaker->Receiver [label="start"];
  * Sender->Receiver [label="receive audio data"];
- * Receiver->AudioPlayer [label="call handle_receive_cb"];
- * AudioPlayer->AudioPlayer [label="process and write data to stream"];
+ * Receiver->AudioSpeaker [label="call handle_receive_cb"];
+ * AudioSpeaker->AudioSpeaker [label="process and write data to stream"];
  * @endmsc
  *
- * \n The Receiver registers the handle_receive_cb function of the AudioPlayer.
- * The AudioPlayer opens an audio stream and starts the Receiver. The Receiver
+ * \n The Receiver registers the handle_receive_cb function of the AudioSpeaker.
+ * The AudioSpeaker opens an audio stream and starts the Receiver. The Receiver
  * then begins receiving audio data from the Sender. Upon receiving the data,
- * the Receiver calls handle_receive_cb, enabling the AudioPlayer to process the
- * received audio data and play it through the speakers by writing it to the
+ * the Receiver calls handle_receive_cb, enabling the AudioSpeaker to process
+ * the received audio data and play it through the speakers by writing it to the
  * audio stream.
  */
 
 /**
- * @class AudioPlayer
+ * @class AudioSpeaker
  * @brief Class for playing audio.
  */
-class AudioPlayer {
+class AudioSpeaker {
   public:
-    AudioPlayer(const AudioPlayer &) = delete;
-    AudioPlayer(const AudioPlayer &&) = delete;
-    AudioPlayer &operator=(const AudioPlayer &) = delete;
+    AudioSpeaker(const AudioSpeaker &) = delete;
+    AudioSpeaker(const AudioSpeaker &&) = delete;
+
+    AudioSpeaker &operator=(const AudioSpeaker &) = delete;
+    AudioSpeaker &operator=(const AudioSpeaker &&) = delete;
 
     /**
-     * @brief Constructs an AudioPlayer object.
-     * @param receiver A unique_ptr to the receiver object for audio streaming.
+     * @brief Constructs an AudioSpeaker object.
+     * @param receiver The receiver object for audio streaming.
      */
-    explicit AudioPlayer(std::unique_ptr<Receiver>(receiver));
+    explicit AudioSpeaker(std::shared_ptr<Receiver> receiver);
 
     /**
-     * @brief Destroys the AudioPlayer object.
+     * @brief Destroys the AudioSpeaker object.
      */
-    ~AudioPlayer();
+    ~AudioSpeaker();
 
     /**
      * @brief Static callback function to handle received audio data.
      * @param buf The buffer containing the received audio data.
      * @param recv_bytes The number of received bytes.
      */
-    static void handle_receive_cb(std::array<char, BUFFER_SIZE> buf,
-                                  size_t recv_bytes);
+    static void handle_receive_cb(uint8_t buf[], size_t recv_bytes);
 
   private:
-    const std::unique_ptr<Receiver>
+    const std::shared_ptr<Receiver>
         receiver_;            /**< The receiver object for audio streaming. */
     static PaStream *stream_; /**< The audio stream. */
 };
@@ -110,13 +111,15 @@ class AudioRecorder {
   public:
     AudioRecorder(const AudioRecorder &) = delete;
     AudioRecorder(const AudioRecorder &&) = delete;
+
     AudioRecorder &operator=(const AudioRecorder &) = delete;
+    AudioRecorder &operator=(const AudioRecorder &&) = delete;
 
     /**
      * @brief Constructs an AudioRecorder object.
-     * @param sender A unique_ptr to the sender object for audio streaming.
+     * @param sender The sender object for audio streaming.
      */
-    explicit AudioRecorder(std::unique_ptr<Sender> sender);
+    explicit AudioRecorder(std::shared_ptr<Sender> sender);
 
     /**
      * @brief Destroys the AudioRecorder object.
@@ -128,7 +131,7 @@ class AudioRecorder {
      * @brief Sends a message using the sender object.
      * @param msg The message to be sent.
      */
-    inline void send(const std::string_view &msg) const;
+    inline void send(const std::string &msg) const;
 
     /**
      * @brief Callback function for recording audio.
@@ -146,7 +149,7 @@ class AudioRecorder {
                               PaStreamCallbackFlags statusFlags,
                               void *userData);
 
-    const std::unique_ptr<Sender>
+    const std::shared_ptr<Sender>
         sender_;       /**< The sender object for audio streaming. */
     PaStream *stream_; /**< The audio stream. */
 };

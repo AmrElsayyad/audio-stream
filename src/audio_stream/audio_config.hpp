@@ -6,9 +6,12 @@
 #ifndef AUDIO_CONFIG_HPP
 #define AUDIO_CONFIG_HPP
 
+#include <portaudio.h>
+
 #include <string>
 
-#include <portaudio.h>
+/// The buffer size for the array buffer used for receiving audio.
+static constexpr const unsigned int buffer_size = 8192;
 
 /// The sample rate for audio processing.
 static constexpr const unsigned int sample_rate = 44100;
@@ -26,7 +29,7 @@ static constexpr const unsigned int sample_format = paInt16;
 static constexpr const unsigned int sample_silence = 0;
 
 /// The format string for printing a sample value.
-static constexpr const std::string_view printf_s_format = "%d";
+static constexpr const char* printf_s_format = "%d";
 
 /// The typedef for a sample in the audio processing.
 using sample = int16_t;

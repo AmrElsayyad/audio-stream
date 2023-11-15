@@ -1,15 +1,14 @@
-file(GLOB SRC_FILES *.cpp)
+file(GLOB SRC_FILES audio_stream/*.cpp)
 
-add_executable(${CMAKE_PROJECT_NAME} ${SRC_FILES})
-
-target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ./)
+add_library(audiostream STATIC ${SRC_FILES})
 
 if(WIN32)
-    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE ws2_32)
+  target_link_libraries(audiostream PRIVATE ws2_32)
 endif()
 
-target_link_libraries(${CMAKE_PROJECT_NAME} 
-    PRIVATE
-        portaudio_static
-        Boost::log
-        Boost::program_options)
+target_link_libraries(audiostream PRIVATE Boost::log Boost::program_options
+                                           portaudio_static bluetoothserialport)
+
+add_executable(${CMAKE_PROJECT_NAME} main.cpp)
+
+target_link_libraries(${CMAKE_PROJECT_NAME} audiostream)
